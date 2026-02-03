@@ -1,18 +1,15 @@
-/** @type {import('tailwindcss').Config} */
-import { preset } from '../../lib/esm/tailwind-v4.js';
-
 export default {
   content: [
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}'
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
-  presets: [preset],
-  safelist: [
-    // Re-sanitize preset strings to ensure no hidden chars cause issues
-    ...(preset.safelist || []).map(s => s.trim()),
-  ],
+  safelist: ['w-10', 'rounded-md', 'border-2', 'w-[123px]', 'rounded-[6px]'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'my-red': '#ff0000',
+      }
+    },
   },
   plugins: [],
 }

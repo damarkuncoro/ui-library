@@ -1,4 +1,3 @@
-@import "@damarkuncoro/ui-library/styles/contract-fallback.css";
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
