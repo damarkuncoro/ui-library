@@ -1,6 +1,6 @@
-import { cssVars } from './theme/design-tokens';
-import { buttonSkinContractDef } from './components/button/button-skin-contract';
-import { inputSkinContractDef } from './components/input/input-skin-contract';
+import { cssVars } from './theme/design-tokens.js';
+import { buttonSkinContractDef } from './components/button/button-skin-contract.js';
+import { inputSkinContractDef } from './components/input/input-skin-contract.js';
 
 const sanitize = (val: string | number) => String(val).replace(/ /g, '_');
 
