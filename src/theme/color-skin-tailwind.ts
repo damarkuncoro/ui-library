@@ -1,6 +1,3 @@
-import { colorContractDef } from './color-contract';
-import { sanitize } from '../utils/tailwind/helpers';
-
 // Helper to construct arbitrary values or use semantic class names
 // Since we extended the Tailwind theme with these colors, we can use the class names directly.
 // But for robustness, we can also support arbitrary values if needed.

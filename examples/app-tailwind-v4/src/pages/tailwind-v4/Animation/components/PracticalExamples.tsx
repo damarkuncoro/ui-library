@@ -160,9 +160,15 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Combined Animations</p>
         <div className="flex gap-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg animate-bounce animate-pulse"></div>
-          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg animate-spin animate-pulse"></div>
-          <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg animate-bounce animate-spin"></div>
+          <div className="animate-bounce">
+            <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-purple-500 rounded-lg animate-pulse"></div>
+          </div>
+          <div className="animate-pulse">
+            <div className="w-12 h-12 bg-linear-to-br from-green-500 to-teal-500 rounded-lg animate-spin"></div>
+          </div>
+          <div className="animate-bounce">
+            <div className="w-12 h-12 bg-linear-to-br from-orange-500 to-red-500 rounded-lg animate-spin"></div>
+          </div>
         </div>
       </div>
     </div>
