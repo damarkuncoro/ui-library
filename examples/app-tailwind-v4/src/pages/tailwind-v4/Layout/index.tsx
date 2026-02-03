@@ -22,7 +22,7 @@ export function LayoutPage() {
             <div className="aspect-square bg-green-500 rounded-lg flex items-center justify-center text-white font-medium">
               1:1
             </div>
-            <div className="aspect-[4/3] bg-purple-500 rounded-lg flex items-center justify-center text-white font-medium">
+            <div className="aspect-4/3 bg-purple-500 rounded-lg flex items-center justify-center text-white font-medium">
               4:3
             </div>
           </div>
@@ -70,11 +70,11 @@ export function LayoutPage() {
           description="Control how box decorations (borders, padding, backgrounds) are rendered across fragment breaks."
         >
           <div className="columns-2 gap-4">
-            <div className="box-decoration-clone bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded text-white mb-4">
+            <div className="box-decoration-clone bg-linear-to-r from-blue-500 to-purple-500 p-4 rounded text-white mb-4">
               <p className="font-medium">Clone</p>
               <p className="text-sm">Decorations clone across fragments</p>
             </div>
-            <div className="box-decoration-slice bg-gradient-to-r from-green-500 to-teal-500 p-4 rounded text-white">
+            <div className="box-decoration-slice bg-linear-to-r from-green-500 to-teal-500 p-4 rounded text-white">
               <p className="font-medium">Slice</p>
               <p className="text-sm">Decorations slice across fragments</p>
             </div>
@@ -171,19 +171,19 @@ export function LayoutPage() {
             <div className="space-y-2">
               <p className="text-sm font-medium">Cover</p>
               <div className="w-full h-24 bg-gray-200 rounded-lg overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 object-cover"></div>
+                <div className="w-full h-full bg-linear-to-br from-blue-400 to-blue-600 object-cover"></div>
               </div>
             </div>
             <div className="space-y-2">
               <p className="text-sm font-medium">Contain</p>
               <div className="w-full h-24 bg-gray-200 rounded-lg overflow-hidden">
-                <div className="w-16 h-16 mx-auto my-4 bg-gradient-to-br from-green-400 to-green-600 object-contain"></div>
+                <div className="w-16 h-16 mx-auto my-4 bg-linear-to-br from-green-400 to-green-600 object-contain"></div>
               </div>
             </div>
             <div className="space-y-2">
               <p className="text-sm font-medium">Fill</p>
               <div className="w-full h-24 bg-gray-200 rounded-lg overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 object-fill"></div>
+                <div className="w-full h-full bg-linear-to-br from-purple-400 to-purple-600 object-fill"></div>
               </div>
             </div>
           </div>
