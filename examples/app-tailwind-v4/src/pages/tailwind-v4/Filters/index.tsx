@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageLayout } from '../../components/common/page-layout';
-import { PageHeader } from '../../components/common/page-header';
-import { ExampleSection } from '../../components/common/example-section';
+import { PageLayout } from '../../../components/common/page-layout';
+import { PageHeader } from '../../../components/common/page-header';
+import { ExampleSection } from '../../../components/common/example-section';
 import { Blur } from './components/Blur';
 import { Brightness } from './components/Brightness';
 import { Contrast } from './components/Contrast';
