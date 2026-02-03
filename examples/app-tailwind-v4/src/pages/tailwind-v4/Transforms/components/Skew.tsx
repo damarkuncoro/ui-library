@@ -30,7 +30,7 @@ export function Skew() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Negative Skew</p>
         <div className="flex gap-3">
-          <div className="w-16 h-16 bg-purple-500 rounded -skew-x-0 flex items-center justify-center text-white text-xs">0°</div>
+          <div className="w-16 h-16 bg-purple-500 rounded skew-x-0 flex items-center justify-center text-white text-xs">0°</div>
           <div className="w-16 h-16 bg-purple-500 rounded -skew-x-1 flex items-center justify-center text-white text-xs">-1°</div>
           <div className="w-16 h-16 bg-purple-500 rounded -skew-x-2 flex items-center justify-center text-white text-xs">-2°</div>
           <div className="w-16 h-16 bg-purple-500 rounded -skew-x-3 flex items-center justify-center text-white text-xs">-3°</div>

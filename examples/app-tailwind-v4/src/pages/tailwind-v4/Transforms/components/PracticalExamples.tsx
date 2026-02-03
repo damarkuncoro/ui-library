@@ -67,11 +67,11 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">3D Card Flip</p>
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg transition-transform duration-500 hover:rotate-y-180 cursor-pointer">
+          <div className="p-4 bg-linear-to-br from-blue-500 to-purple-500 rounded-lg transition-transform duration-500 hover:rotate-y-180 cursor-pointer">
             <h3 className="font-medium text-white mb-2">Front</h3>
             <p className="text-sm text-white/80">Hover to flip</p>
           </div>
-          <div className="p-4 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg transition-transform duration-500 hover:rotate-x-180 cursor-pointer">
+          <div className="p-4 bg-linear-to-br from-green-500 to-teal-500 rounded-lg transition-transform duration-500 hover:rotate-x-180 cursor-pointer">
             <h3 className="font-medium text-white mb-2">Front</h3>
             <p className="text-sm text-white/80">Hover to flip</p>
           </div>
@@ -82,13 +82,13 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Image Hover Effects</p>
         <div className="grid grid-cols-3 gap-4">
-          <div className="h-32 bg-gradient-to-br from-pink-400 to-red-500 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-110 cursor-pointer">
+          <div className="h-32 bg-linear-to-br from-pink-400 to-red-500 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-110 cursor-pointer">
             <div className="h-full flex items-center justify-center text-white">Zoom</div>
           </div>
-          <div className="h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg overflow-hidden transition-transform duration-300 hover:rotate-6 cursor-pointer">
+          <div className="h-32 bg-linear-to-br from-cyan-400 to-blue-500 rounded-lg overflow-hidden transition-transform duration-300 hover:rotate-6 cursor-pointer">
             <div className="h-full flex items-center justify-center text-white">Rotate</div>
           </div>
-          <div className="h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg overflow-hidden transition-transform duration-300 hover:skew-x-6 cursor-pointer">
+          <div className="h-32 bg-linear-to-br from-yellow-400 to-orange-500 rounded-lg overflow-hidden transition-transform duration-300 hover:skew-x-6 cursor-pointer">
             <div className="h-full flex items-center justify-center text-white">Skew</div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Combined Transforms</p>
         <div className="grid grid-cols-2 gap-4">
-          <button className="px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg transition-all duration-500 hover:scale-110 hover:rotate-3 hover:-translate-y-2">
+          <button className="px-4 py-3 bg-linear-to-r from-blue-500 to-purple-500 text-white rounded-lg transition-all duration-500 hover:scale-110 hover:rotate-3 hover:-translate-y-2">
             Scale + Rotate + Lift
           </button>
           <button className="px-4 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg transition-all duration-500 hover:bg-blue-500 hover:text-white hover:scale-105 hover:skew-x-2">

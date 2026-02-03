@@ -21,7 +21,7 @@ export function Rotate() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Negative Rotate</p>
         <div className="flex gap-3">
-          <div className="w-16 h-16 bg-green-500 rounded -rotate-0 flex items-center justify-center text-white text-xs">0°</div>
+          <div className="w-16 h-16 bg-green-500 rounded rotate-0 flex items-center justify-center text-white text-xs">0°</div>
           <div className="w-16 h-16 bg-green-500 rounded -rotate-1 flex items-center justify-center text-white text-xs">-1°</div>
           <div className="w-16 h-16 bg-green-500 rounded -rotate-2 flex items-center justify-center text-white text-xs">-2°</div>
           <div className="w-16 h-16 bg-green-500 rounded -rotate-3 flex items-center justify-center text-white text-xs">-3°</div>
