@@ -3,9 +3,8 @@ import { preset } from '../../lib/esm/tailwind-v4.js';
 
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "../../lib/esm/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}'
   ],
   presets: [preset],
   safelist: [
