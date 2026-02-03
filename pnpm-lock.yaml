@@ -83,8 +83,8 @@ importers:
   examples/app-tailwind-v4:
     dependencies:
       '@damarkuncoro/ui-library':
-        specifier: workspace:*
-        version: link:../..
+        specifier: latest
+        version: 0.0.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -243,6 +243,12 @@ packages:
 
   '@damarkuncoro/meta-architecture@2.0.3':
     resolution: {integrity: sha512-IBL75F/8VhL6ATf/gtPTvJDgmtdTsFekDsESWHYE5AWefkckWpp2F/EvyjTynG8e6FQDRu1Srebm7tkD11ucUQ==}
+
+  '@damarkuncoro/ui-library@0.0.3':
+    resolution: {integrity: sha512-MycrVz/ff2oD/NBLswrQSoS9xktYpDcx7zT3APIa/iuvSAeBBV7kddLjm4th9t25rYNlQEtezhk0FP4u2sIWJg==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
 
   '@esbuild/aix-ppc64@0.25.12':
     resolution: {integrity: sha512-Hhmwd6CInZ3dwpuGTF8fJG6yoWmsToE+vYgD4nytZVxcu1ulHpUQRAB1UJ8+N1Am3Mz4+xOByoQoSZf4D+CpkA==}
@@ -1705,6 +1711,12 @@ snapshots:
   '@csstools/css-tokenizer@3.0.4': {}
 
   '@damarkuncoro/meta-architecture@2.0.3': {}
+
+  '@damarkuncoro/ui-library@0.0.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@damarkuncoro/meta-architecture': 2.0.3
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
 
   '@esbuild/aix-ppc64@0.25.12':
     optional: true

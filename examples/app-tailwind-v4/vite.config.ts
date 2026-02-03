@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@damarkuncoro/ui-library': path.resolve(__dirname, '../../lib/esm'),
+      '@damarkuncoro/ui-library': path.resolve(__dirname, '../../src'),
     },
   },
   server: {

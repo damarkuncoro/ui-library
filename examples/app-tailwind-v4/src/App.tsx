@@ -4,6 +4,7 @@ import { Home } from './pages/home'
 import { PaletteColors } from './pages/palette-colors'
 import { ButtonPage } from './pages/components/button'
 import { InputPage } from './pages/components/input'
+import { LayoutPage } from './pages/tailwind-v4/Layout'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
             <Route path="/palette-colors" element={<PaletteColors />} />
             <Route path="/components/button" element={<ButtonPage />} />
             <Route path="/components/input" element={<InputPage />} />
+            <Route path="/tailwind-v4/Layout" element={<LayoutPage />} />
           </Routes>
         </BrowserRouter>
       
