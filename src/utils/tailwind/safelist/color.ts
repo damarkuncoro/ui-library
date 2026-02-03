@@ -1,4 +1,4 @@
-import { colorContractDef } from '../../../theme/color-contract';
+import { colorContractDef } from '../../../theme/contracts/color-contract';
 
 // Generates safelist for color classes
 // This ensures that dynamic usage of these colors (if any) works correctly.

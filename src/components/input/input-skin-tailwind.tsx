@@ -10,31 +10,50 @@ const { variants, sizes, base, disabled, icons } = inputSkinContractDef;
 // Helper to construct arbitrary values without confusing Tailwind scanner
 const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
+// Helper to generate variant classes (DRY)
+type InputVariant = typeof variants[keyof typeof variants];
+
+const createVariantClasses = (variant: InputVariant) => {
+  // Common logic for outline and filled
+  // Check if it has ringColor in focus (outline/filled) vs flushed which has different structure
+  if ('ringColor' in variant.focus && 'borderColor' in variant) {
+    const v = variant as typeof variants.outline | typeof variants.filled;
+    const classes = [
+      tw('bg', v.backgroundColor),
+      'border',
+      tw('border', v.borderColor),
+      tw('text', v.color),
+      `placeholder:${tw('text', v.placeholderColor)}`,
+      `focus:${tw('border', v.focus.borderColor)}`,
+      `focus:${tw('ring', tokens.ui.outlineWidth)}`,
+      `focus:${tw('ring', v.focus.ringColor)}`
+    ];
+
+    // Handle Hover
+    // Outline: changes borderColor
+    // Filled: changes backgroundColor
+    if ('borderColor' in v.hover) {
+        classes.push(`hover:${tw('border', (v.hover as any).borderColor)}`);
+    } else if ('backgroundColor' in v.hover) {
+        classes.push(`hover:${tw('bg', (v.hover as any).backgroundColor)}`);
+    }
+
+    // Handle Focus Background (Filled only)
+    if ('backgroundColor' in v.focus) {
+        classes.push(`focus:${tw('bg', (v.focus as any).backgroundColor)}`);
+    }
+
+    return classes.join(' ');
+  }
+
+  // Fallback for flushed or other variants that don't match the pattern
+  return '';
+};
+
 // Derived Classes (Contract -> JIT)
 export const variantClasses = {
-  outline: [
-    tw('bg', variants.outline.backgroundColor),
-    'border',
-    tw('border', variants.outline.borderColor),
-    tw('text', variants.outline.color),
-    `placeholder:${tw('text', variants.outline.placeholderColor)}`,
-    `hover:${tw('border', variants.outline.hover.borderColor)}`,
-    `focus:${tw('border', variants.outline.focus.borderColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring', variants.outline.focus.ringColor)}`
-  ].join(' '),
-  filled: [
-    tw('bg', variants.filled.backgroundColor),
-    'border',
-    tw('border', variants.filled.borderColor),
-    tw('text', variants.filled.color),
-    `placeholder:${tw('text', variants.filled.placeholderColor)}`,
-    `hover:${tw('bg', variants.filled.hover.backgroundColor)}`,
-    `focus:${tw('bg', variants.filled.focus.backgroundColor)}`,
-    `focus:${tw('border', variants.filled.focus.borderColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring', variants.filled.focus.ringColor)}`
-  ].join(' '),
+  outline: createVariantClasses(variants.outline),
+  filled: createVariantClasses(variants.filled),
   flushed: [
     tw('bg', variants.flushed.backgroundColor),
     'border-b',

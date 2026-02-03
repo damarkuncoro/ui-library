@@ -93,7 +93,7 @@ export const inputSkinContractDef = {
   
   // Base styles
   base: {
-    borderRadius: tokens.borderRadius.md,
+    borderRadius: tokens.borders.radius.md,
     transition: tokens.transition.base,
     width: '100%',
     outline: 'none',

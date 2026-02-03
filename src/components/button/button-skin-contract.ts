@@ -109,7 +109,7 @@ export const buttonSkinContractDef = {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: tokens.borderRadius.md, // 6px
+    borderRadius: tokens.borders.radius.md, // 6px
     border: `1px solid ${tokens.colors.transparent}`,
     cursor: 'pointer',
     transition: tokens.transition.base,

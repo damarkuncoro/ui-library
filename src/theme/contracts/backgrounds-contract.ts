@@ -1,0 +1,53 @@
+export const backgroundsContract = {
+  attachment: {
+    fixed: 'fixed',
+    local: 'local',
+    scroll: 'scroll',
+  },
+  clip: {
+    border: 'border-box',
+    padding: 'padding-box',
+    content: 'content-box',
+    text: 'text',
+  },
+  origin: {
+    border: 'border-box',
+    padding: 'padding-box',
+    content: 'content-box',
+  },
+  position: {
+    bottom: 'bottom',
+    center: 'center',
+    left: 'left',
+    'left-bottom': 'left bottom',
+    'left-top': 'left top',
+    right: 'right',
+    'right-bottom': 'right bottom',
+    'right-top': 'right top',
+    top: 'top',
+  },
+  repeat: {
+    repeat: 'repeat',
+    'no-repeat': 'no-repeat',
+    'repeat-x': 'repeat-x',
+    'repeat-y': 'repeat-y',
+    round: 'round',
+    space: 'space',
+  },
+  size: {
+    auto: 'auto',
+    cover: 'cover',
+    contain: 'contain',
+  },
+  image: {
+    none: 'none',
+    'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+    'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+    'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+    'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+    'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+    'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+    'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+    'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+  },
+} as const;

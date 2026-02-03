@@ -11,52 +11,35 @@ const { variants, sizes, base, disabled, icons, loader } = buttonSkinContractDef
 // Helper to construct arbitrary values without confusing Tailwind scanner
 const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
+// Helper to generate variant classes (DRY)
+type ButtonVariant = typeof variants[keyof typeof variants];
+
+const createVariantClasses = (variant: ButtonVariant) => {
+  const classes = [
+    tw('bg', variant.backgroundColor),
+    tw('text', variant.color),
+    `hover:${tw('bg', variant.hover.backgroundColor)}`,
+    `focus:${tw('ring', variant.focus.ringColor)}`,
+    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
+    `focus:${tw('ring-offset', variant.focus.outlineOffset)}`
+  ];
+
+  if ('borderColor' in variant) {
+    classes.unshift('border', tw('border', (variant as any).borderColor));
+  }
+
+  return classes.join(' ');
+};
+
 // Export styles for testing consistency
 // These classes use JIT Arbitrary Values injected directly from the contract.
 // This ensures STRICT VISUAL CONSISTENCY without manual mapping.
 export const variantClasses = {
-  primary: [
-    tw('bg', variants.primary.backgroundColor),
-    tw('text', variants.primary.color),
-    `hover:${tw('bg', variants.primary.hover.backgroundColor)}`,
-    `focus:${tw('ring', variants.primary.focus.ringColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring-offset', variants.primary.focus.outlineOffset)}`
-  ].join(' '),
-  secondary: [
-    tw('bg', variants.secondary.backgroundColor),
-    tw('text', variants.secondary.color),
-    `hover:${tw('bg', variants.secondary.hover.backgroundColor)}`,
-    `focus:${tw('ring', variants.secondary.focus.ringColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring-offset', variants.secondary.focus.outlineOffset)}`
-  ].join(' '),
-  outline: [
-    'border',
-    tw('border', variants.outline.borderColor),
-    tw('bg', variants.outline.backgroundColor),
-    tw('text', variants.outline.color),
-    `hover:${tw('bg', variants.outline.hover.backgroundColor)}`,
-    `focus:${tw('ring', variants.outline.focus.ringColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring-offset', variants.outline.focus.outlineOffset)}`
-  ].join(' '),
-  ghost: [
-    tw('bg', variants.ghost.backgroundColor),
-    tw('text', variants.ghost.color),
-    `hover:${tw('bg', variants.ghost.hover.backgroundColor)}`,
-    `focus:${tw('ring', variants.ghost.focus.ringColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring-offset', variants.ghost.focus.outlineOffset)}`
-  ].join(' '),
-  danger: [
-    tw('bg', variants.danger.backgroundColor),
-    tw('text', variants.danger.color),
-    `hover:${tw('bg', variants.danger.hover.backgroundColor)}`,
-    `focus:${tw('ring', variants.danger.focus.ringColor)}`,
-    `focus:${tw('ring', tokens.ui.outlineWidth)}`,
-    `focus:${tw('ring-offset', variants.danger.focus.outlineOffset)}`
-  ].join(' '),
+  primary: createVariantClasses(variants.primary),
+  secondary: createVariantClasses(variants.secondary),
+  outline: createVariantClasses(variants.outline),
+  ghost: createVariantClasses(variants.ghost),
+  danger: createVariantClasses(variants.danger),
 };
 
 export const sizeClasses = {

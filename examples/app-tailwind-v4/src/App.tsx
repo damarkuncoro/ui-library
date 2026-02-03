@@ -4,6 +4,7 @@ import { Home } from './pages/home'
 import { PaletteColors } from './pages/palette-colors'
 import { ButtonPage } from './pages/components/button'
 import { InputPage } from './pages/components/input'
+import { ShapePage } from './pages/components/shape'
 import { LayoutPage } from './pages/tailwind-v4/Layout'
 import { FlexboxPage } from './pages/tailwind-v4/Flexbox'
 import { GridPage } from './pages/tailwind-v4/Grid'
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/palette-colors" element={<PaletteColors />} />
             <Route path="/components/button" element={<ButtonPage />} />
             <Route path="/components/input" element={<InputPage />} />
+            <Route path="/components/shape" element={<ShapePage />} />
             <Route path="/tailwind-v4/Layout" element={<LayoutPage />} />
             <Route path="/tailwind-v4/Flexbox" element={<FlexboxPage />} />
             <Route path="/tailwind-v4/Grid" element={<GridPage />} />
