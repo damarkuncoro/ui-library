@@ -1,2 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  /* 
+   * CONTRACT MAPPING
+   * Maps our CSS Variables (from Design Tokens) to Tailwind Utility Classes.
+   * This satisfies the "Contract Tailwind Class" requirement.
+   * 
+   * Usage:
+   * bg-primary-main    -> background-color: var(--color-primary-main)
+   * text-primary-main  -> color: var(--color-primary-main)
+   */
+
+  /* Primary */
+  --color-primary-main: var(--color-primary-main);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-focus: var(--color-primary-focus);
+  --color-primary-contrast: var(--color-primary-contrast);
+
+  /* Secondary */
+  --color-secondary-main: var(--color-secondary-main);
+  --color-secondary-hover: var(--color-secondary-hover);
+  --color-secondary-focus: var(--color-secondary-focus);
+  --color-secondary-contrast: var(--color-secondary-contrast);
+
+  /* Danger */
+  --color-danger-main: var(--color-danger-main);
+  --color-danger-hover: var(--color-danger-hover);
+  --color-danger-focus: var(--color-danger-focus);
+  --color-danger-contrast: var(--color-danger-contrast);
+
+  /* Neutral */
+  --color-neutral-border: var(--color-neutral-border);
+  --color-neutral-text: var(--color-neutral-text);
+  --color-neutral-text-secondary: var(--color-neutral-text-secondary);
+  --color-neutral-bg: var(--color-neutral-bg);
+  --color-neutral-bg-surface: var(--color-neutral-bg-surface);
+}

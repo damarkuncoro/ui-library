@@ -24,8 +24,8 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Interactive Button Group</p>
         <div className="flex gap-2">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none active:scale-95 transition-all">
-            Primary
+          <button className="px-4 py-2 bg-primary-main text-primary-contrast rounded hover:bg-primary-hover focus:ring-2 focus:ring-primary-focus focus:ring-offset-2 focus:outline-none active:scale-95 transition-all">
+            Primary (Contract)
           </button>
           <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none active:scale-95 transition-all">
             Success
