@@ -20,6 +20,7 @@ export function NavigationSections() {
         { name: 'Sizing', path: '/tailwind-v4/Sizing', icon: '📏' },
         { name: 'Spacing', path: '/tailwind-v4/Spacing', icon: '📏' },
         { name: 'Typography', path: '/tailwind-v4/Typography', icon: '🔤' },
+        { name: 'Borders', path: '/tailwind-v4/Borders', icon: '🔳' },
         { name: 'Colors', path: '/palette-colors', icon: '🎨' },
       ]
     }

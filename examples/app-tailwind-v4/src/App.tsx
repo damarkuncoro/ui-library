@@ -9,6 +9,8 @@ import { FlexboxPage } from './pages/tailwind-v4/Flexbox'
 import { GridPage } from './pages/tailwind-v4/Grid'
 import { SizingPage } from './pages/tailwind-v4/Sizing'
 import { SpacingPage } from './pages/tailwind-v4/Spacing'
+import { TypographyPage } from './pages/tailwind-v4/Typography'
+import { BordersPage } from './pages/tailwind-v4/Borders'
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
             <Route path="/tailwind-v4/Grid" element={<GridPage />} />
             <Route path="/tailwind-v4/Sizing" element={<SizingPage />} />
             <Route path="/tailwind-v4/Spacing" element={<SpacingPage />} />
+            <Route path="/tailwind-v4/Typography" element={<TypographyPage />} />
+            <Route path="/tailwind-v4/Borders" element={<BordersPage />} />
           </Routes>
         </BrowserRouter>
       
