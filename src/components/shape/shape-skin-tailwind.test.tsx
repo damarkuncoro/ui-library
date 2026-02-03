@@ -1,0 +1,48 @@
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { ShapeSkinTailwind } from './shape-skin-tailwind';
+import { tokens } from '../../theme/design-tokens';
+
+describe('ShapeSkinTailwind', () => {
+  it('should verify square variant uses aspect-ratio and excludes fixed height', () => {
+    render(<ShapeSkinTailwind variant="square" size="md" data-testid="shape-square" />);
+    
+    const shape = screen.getByTestId('shape-square');
+    const classList = shape.className;
+
+    // Check aspect ratio class
+    // Note: tokens.aspectRatio.square is '1/1', so sanitized is '1/1'
+    expect(classList).toContain('aspect-[1/1]');
+    
+    // Check width class is present (md width = sizing[12])
+    // We don't check exact value here, just that 'w-' exists
+    expect(classList).toMatch(/w-\[[^\]]+\]/);
+    
+    // CRITICAL: Check height class is ABSENT for square variant
+    // This confirms our responsiveness fix
+    expect(classList).not.toMatch(/h-\[[^\]]+\]/);
+  });
+
+  it('should verify box variant includes fixed height', () => {
+    render(<ShapeSkinTailwind variant="box" size="md" data-testid="shape-box" />);
+    
+    const shape = screen.getByTestId('shape-box');
+    const classList = shape.className;
+
+    // Check width class is present
+    expect(classList).toMatch(/w-\[[^\]]+\]/);
+    
+    // CRITICAL: Check height class is PRESENT for box variant (default behavior)
+    expect(classList).toMatch(/h-\[[^\]]+\]/);
+  });
+
+  it('should verify circle variant also excludes fixed height', () => {
+    render(<ShapeSkinTailwind variant="circle" size="lg" data-testid="shape-circle" />);
+    
+    const shape = screen.getByTestId('shape-circle');
+    const classList = shape.className;
+
+    expect(classList).toContain('aspect-[1/1]');
+    expect(classList).not.toMatch(/h-\[[^\]]+\]/);
+  });
+});

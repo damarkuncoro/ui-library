@@ -70,7 +70,7 @@ const sharedThemeTokens = {
   '--shadow-focus-ring': '0 0 0 2px',
 
   // Aspect Ratio
-  '--aspect-video': '16 / 9',
+  '--aspect-video': '16/9',
 
   // Container (Columns)
   '--container-3xs': '16rem',

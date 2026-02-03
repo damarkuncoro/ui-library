@@ -29,11 +29,11 @@ const createVariantClasses = (variant: ShapeVariantDef) => {
 
 type ShapeSizeDef = typeof sizes[keyof typeof sizes];
 
-const createSizeClasses = (size: ShapeSizeDef) => {
+const createSizeClasses = (size: ShapeSizeDef, excludeHeight = false) => {
   const classes: string[] = [];
 
   if (size.width) classes.push(tw('w', size.width));
-  if (size.height) classes.push(tw('h', size.height));
+  if (!excludeHeight && size.height) classes.push(tw('h', size.height));
   if ('fontSize' in size && size.fontSize) {
     classes.push(tw('text', size.fontSize));
   }
@@ -51,11 +51,26 @@ const variantClasses = {
 };
 
 const sizeClasses = {
-  sm: createSizeClasses(sizes.sm),
-  md: createSizeClasses(sizes.md),
-  lg: createSizeClasses(sizes.lg),
-  xl: createSizeClasses(sizes.xl),
-  full: createSizeClasses(sizes.full),
+  sm: {
+    default: createSizeClasses(sizes.sm),
+    aspect: createSizeClasses(sizes.sm, true),
+  },
+  md: {
+    default: createSizeClasses(sizes.md),
+    aspect: createSizeClasses(sizes.md, true),
+  },
+  lg: {
+    default: createSizeClasses(sizes.lg),
+    aspect: createSizeClasses(sizes.lg, true),
+  },
+  xl: {
+    default: createSizeClasses(sizes.xl),
+    aspect: createSizeClasses(sizes.xl, true),
+  },
+  full: {
+    default: createSizeClasses(sizes.full),
+    aspect: createSizeClasses(sizes.full, true),
+  },
 };
 
 export const ShapeSkinTailwind = forwardRef<HTMLDivElement, ShapeContract>((props, ref) => {
@@ -71,7 +86,14 @@ export const ShapeSkinTailwind = forwardRef<HTMLDivElement, ShapeContract>((prop
   const classes = useMemo(() => {
     // 1. Get Base Classes
     const variantClass = variantClasses[variant] || variantClasses.box;
-    const sizeClass = sizeClasses[size] || sizeClasses.md;
+    
+    // 2. Determine if we should enforce Aspect Ratio (exclude fixed height)
+    // Check if the current variant has an aspectRatio defined in contract
+    const variantDef = variants[variant as keyof typeof variants];
+    const hasAspectRatio = variantDef && 'aspectRatio' in variantDef;
+    
+    const sizeGroup = sizeClasses[size] || sizeClasses.md;
+    const sizeClass = hasAspectRatio ? sizeGroup.aspect : sizeGroup.default;
 
     const classList = [
       'inline-flex',
