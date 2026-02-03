@@ -1,16 +1,41 @@
 import { colorPalette, colorContractDef } from './color-contract';
+import { layoutContract } from './layout-contract';
+import { flexContract } from './flex-contract';
+import { gridContract } from './grid-contract';
+import { sizingContract } from './sizing-contract';
+import { spacingContract } from './spacing-contract';
+import { typographyContract } from './typography-contract';
 
 // --- GLOBAL DESIGN TOKENS ---
 // This is the "Root Contract" for the entire UI Library.
 // All Component Skin Contracts should reference these tokens.
 
 export const palette = colorPalette;
+export const layout = layoutContract;
+export const flex = flexContract;
+export const grid = gridContract;
+export const sizing = sizingContract;
+export const spacing = spacingContract;
+export const typography = typographyContract;
 
 // 1. Define the CSS Variable Keys (The "Contract" for the Theme)
 export const cssVars = {
   colors: colorContractDef,
   shadows: {
     focusRing: 'var(--shadow-focus-ring)',
+  },
+  layout: {
+    borderRadius: {
+      DEFAULT: 'var(--radius)',
+      none: 'var(--radius-none)',
+      sm: 'var(--radius-sm)',
+      md: 'var(--radius-md)',
+      lg: 'var(--radius-lg)',
+      xl: 'var(--radius-xl)',
+      '2xl': 'var(--radius-2xl)',
+      '3xl': 'var(--radius-3xl)',
+      full: 'var(--radius-full)',
+    }
   }
 } as const;
 
@@ -44,6 +69,17 @@ export const themes = {
 
     // Shadows
     '--shadow-focus-ring': '0 0 0 2px',
+
+    // Radius (Layout)
+    '--radius-none': layout.borderRadius.none,
+    '--radius-sm': layout.borderRadius.sm,
+    '--radius': layout.borderRadius.DEFAULT,
+    '--radius-md': layout.borderRadius.md,
+    '--radius-lg': layout.borderRadius.lg,
+    '--radius-xl': layout.borderRadius.xl,
+    '--radius-2xl': layout.borderRadius['2xl'],
+    '--radius-3xl': layout.borderRadius['3xl'],
+    '--radius-full': layout.borderRadius.full,
   },
   dark: {
     // Primary (Lighter Blue for Dark Mode)
@@ -73,6 +109,17 @@ export const themes = {
 
     // Shadows
     '--shadow-focus-ring': '0 0 0 2px',
+
+    // Radius (Layout) - Same as light for now, but could be different!
+    '--radius-none': layout.borderRadius.none,
+    '--radius-sm': layout.borderRadius.sm,
+    '--radius': layout.borderRadius.DEFAULT,
+    '--radius-md': layout.borderRadius.md,
+    '--radius-lg': layout.borderRadius.lg,
+    '--radius-xl': layout.borderRadius.xl,
+    '--radius-2xl': layout.borderRadius['2xl'],
+    '--radius-3xl': layout.borderRadius['3xl'],
+    '--radius-full': layout.borderRadius.full,
   }
 };
 
@@ -93,56 +140,35 @@ export const tokens = {
     outlineWidth: '2px',
   },
 
-  // Static Tokens (Shared across themes for now)
-  borderRadius: {
-    sm: '4px',
-    md: '6px',
-    lg: '8px',
-    full: '9999px',
-  },
-  spacing: {
-    2: '8px',
-    3: '12px',
-    4: '16px',
-    6: '24px',
-  },
+  // Layout Tokens (Mapped to CSS Vars where applicable)
+  borderRadius: cssVars.layout.borderRadius, // Now uses var(--radius-*)
+  spacing: spacing,
+  screens: layout.screens,
+  zIndex: layout.zIndex,
+  
+  // Flexbox Tokens
+  flex: flex,
+  
+  // Grid Tokens
+  grid: grid,
+
+  // Sizing Tokens
   sizing: {
-    8: '32px',
-    10: '40px',
-    12: '48px',
-    icon: {
-      sm: '14px',
-      md: '16px',
-      lg: '20px',
-    },
+    ...sizing.values,
+    ...sizing.width, // Includes screen: 100vw
+    
+    // Sub-categories
+    minWidth: sizing.minWidth,
+    maxWidth: sizing.maxWidth,
+    minHeight: sizing.minHeight,
+    maxHeight: sizing.maxHeight,
+    
+    // Component Specific
+    icon: sizing.icon,
   },
-  typography: {
-    fontFamily: {
-      sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-      mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-    },
-    fontSize: {
-      xs: '0.75rem',    // 12px
-      sm: '0.875rem',   // 14px
-      base: '1rem',     // 16px
-      lg: '1.125rem',   // 18px
-      xl: '1.25rem',    // 20px
-    },
-    fontWeight: {
-      normal: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-    },
-    lineHeight: {
-      none: '1',
-      tight: '1.25',
-      snug: '1.375',
-      normal: '1.5',
-      relaxed: '1.625',
-      loose: '2',
-    }
-  },
+
+  typography: typography,
+  
   opacity: {
     disabled: '0.5',
   },
