@@ -7,14 +7,14 @@ export function PracticalExamples() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Interactive Card</p>
         <div className="group p-4 border border-neutral-border rounded-lg hover:border-blue-500 hover:shadow-xl transition-all cursor-pointer">
-          <div className="h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mb-3 group-hover:scale-105 transition-transform"></div>
+          <div className="h-24 bg-linear-to-br from-blue-400 to-blue-600 rounded-lg mb-3 group-hover:scale-105 transition-transform"></div>
           <h3 className="font-medium text-neutral-text mb-1 group-hover:text-blue-500 transition-colors">
             Interactive Card
           </h3>
           <p className="text-sm text-neutral-text-secondary mb-3">
             Hover over this card to see multiple interactive effects
           </p>
-          <button className="w-full px-3 py-2 bg-blue-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-600 active:scale-95 transition-transform">
+          <button className="w-full px-3 py-2 bg-blue-500 text-white rounded opacity-0 group-hover:opacity-100 transition-all hover:bg-blue-600 active:scale-95">
             Learn More
           </button>
         </div>
@@ -92,7 +92,7 @@ export function PracticalExamples() {
           <button className="w-12 h-12 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:scale-110 hover:-translate-y-1 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none active:scale-95 transition-all flex items-center justify-center">
             <span className="text-2xl">📧</span>
           </button>
-          <button className="w-12 h-12 bg-purple-500 text-white rounded-lg hover:bg-purple-600 hover:scale-110 hover:rotate-[-12deg] focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none active:scale-95 transition-all flex items-center justify-center">
+          <button className="w-12 h-12 bg-purple-500 text-white rounded-lg hover:bg-purple-600 hover:scale-110 hover:-rotate-12 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none active:scale-95 transition-all flex items-center justify-center">
             <span className="text-2xl">🔔</span>
           </button>
         </div>

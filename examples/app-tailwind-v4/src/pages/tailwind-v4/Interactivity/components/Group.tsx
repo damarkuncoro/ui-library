@@ -20,7 +20,7 @@ export function Group() {
 
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Group Hover - Image with Overlay</p>
-        <div className="group relative h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg overflow-hidden cursor-pointer">
+        <div className="group relative h-32 bg-linear-to-br from-blue-400 to-blue-600 rounded-lg overflow-hidden cursor-pointer">
           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Image</span>
           </div>
@@ -51,7 +51,7 @@ export function Group() {
           <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 group-hover:-translate-y-1 transition-all cursor-pointer">
             <span className="text-2xl">📧</span>
           </div>
-          <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-[-12deg] transition-all cursor-pointer">
+          <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 group-hover:-rotate-12 transition-all cursor-pointer">
             <span className="text-2xl">🔔</span>
           </div>
         </div>
@@ -96,7 +96,7 @@ export function Group() {
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-text">Group Hover - Product Card</p>
         <div className="group p-4 border border-neutral-border rounded-lg hover:shadow-xl transition-all cursor-pointer">
-          <div className="h-24 bg-gradient-to-br from-pink-400 to-red-500 rounded-lg mb-3 group-hover:scale-105 transition-transform"></div>
+          <div className="h-24 bg-linear-to-br from-pink-400 to-red-500 rounded-lg mb-3 group-hover:scale-105 transition-transform"></div>
           <h3 className="font-medium text-neutral-text mb-1 group-hover:text-red-500 transition-colors">
             Product Name
           </h3>
