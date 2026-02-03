@@ -38,7 +38,7 @@ function buttonSafelist() {
 }
 
 function inputSafelist() {
-  const { variants, sizes, base } = inputSkinContractDef;
+  const { variants, sizes, base, icons, disabled } = inputSkinContractDef;
   const classes: string[] = [];
   Object.values(variants).forEach((v: any) => {
     if (v.backgroundColor) classes.push(`bg-[${sanitize(v.backgroundColor)}]`);
@@ -52,13 +52,29 @@ function inputSafelist() {
     if (v.focus?.borderColor) classes.push(`focus:border-[${sanitize(v.focus.borderColor)}]`);
     if (v.focus?.ringColor) classes.push(`focus:ring-[${sanitize(v.focus.ringColor)}]`);
     if (v.focus?.borderBottomColor) classes.push(`focus:border-b-[${sanitize(v.focus.borderBottomColor)}]`);
+    if (v.invalid?.borderColor) classes.push(`!border-[${sanitize(v.invalid.borderColor)}]`);
+    if (v.invalid?.ringColor) classes.push(`!ring-[${sanitize(v.invalid.ringColor)}]`);
+    if (v.invalid?.borderBottomColor) classes.push(`!border-[${sanitize(v.invalid.borderBottomColor)}]`);
   });
   Object.values(sizes).forEach((s: any) => {
     if (s.height) classes.push(`h-[${sanitize(s.height)}]`);
     if (s.padding) classes.push(`[padding:${sanitize(s.padding)}]`);
     if (s.fontSize) classes.push(`text-[${sanitize(s.fontSize)}]`);
   });
+  
+  classes.push(`rounded-[${sanitize(base.borderRadius)}]`);
   classes.push(`[transition:${sanitize(base.transition)}]`);
+  classes.push(`disabled:opacity-[${sanitize(disabled.opacity)}]`);
+  classes.push(`disabled:cursor-[${sanitize(disabled.cursor)}]`);
+  
+  // Icon related
+  classes.push(`[padding-left:${sanitize(icons.padding)}]`);
+  classes.push(`[padding-right:${sanitize(icons.padding)}]`);
+  classes.push(`[&_.input-icon-left]:left-[${sanitize(icons.position)}]`);
+  classes.push(`[&_.input-icon-right]:right-[${sanitize(icons.position)}]`);
+  classes.push(`[&_.input-icon-left]:text-[${sanitize(icons.color)}]`);
+  classes.push(`[&_.input-icon-right]:text-[${sanitize(icons.color)}]`);
+
   return classes;
 }
 

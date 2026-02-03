@@ -61,8 +61,8 @@ export const InputTailwind = forwardRef<HTMLInputElement, InputBaseProps>(
       invalidClass,
       sizeClass,
       // Icon Padding
-      leftIcon ? `pl-[${icons.padding}]` : '',
-      rightIcon ? `pr-[${icons.padding}]` : '',
+      leftIcon ? `[padding-left:${icons.padding}]` : '',
+      rightIcon ? `[padding-right:${icons.padding}]` : '',
       inputClassName
     ].filter(Boolean).join(' '), [variantClass, invalidClass, sizeClass, leftIcon, rightIcon, inputClassName]);
 
