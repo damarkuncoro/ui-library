@@ -3,10 +3,9 @@ import { describe, it, expect } from 'vitest';
 import { InputTailwind, variantClasses, sizeClasses } from './input-skin-tailwind';
 import { inputSkinContractDef } from './input-skin-contract';
 import { tokens } from '../../theme/design-tokens';
-import { ThemeProvider } from '../../theme/theme-provider';
 
 describe('Input Component System', () => {
-  const { variants, sizes, disabled } = inputSkinContractDef;
+  const { variants, disabled } = inputSkinContractDef;
 
   describe('Contract Integration', () => {
     it('should use design tokens for primary variant color', () => {
@@ -43,7 +42,7 @@ describe('Input Component System', () => {
     });
 
     it('should handle disabled state', () => {
-      render(<InputTailwind isDisabled />);
+      render(<InputTailwind disabled />);
       const input = screen.getByRole('textbox');
       expect(input).toBeDisabled();
       expect(input).toHaveClass(`disabled:opacity-[${disabled.opacity}]`);

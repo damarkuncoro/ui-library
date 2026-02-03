@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@damarkuncoro/ui-library': path.resolve(__dirname, '../../lib/esm/index.js')
+      '@damarkuncoro/ui-library': path.resolve(__dirname, '../../lib/esm')
     }
   },
   server: {

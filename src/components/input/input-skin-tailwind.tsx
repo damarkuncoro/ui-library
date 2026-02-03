@@ -83,6 +83,10 @@ export const InputTailwind = forwardRef<HTMLInputElement, InputBaseProps>(
         variant={variant}
         size={size}
         isInvalid={isInvalid}
+        disabled={disabled}
+        readOnly={readOnly}
+        leftIcon={leftIcon}
+        rightIcon={rightIcon}
         {...props}
       />
     );

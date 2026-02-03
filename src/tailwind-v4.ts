@@ -17,7 +17,11 @@ function buttonSafelist() {
   });
   Object.values(sizes).forEach((s: any) => {
     if (s.height) classes.push(`h-[${sanitize(s.height)}]`);
-    if (s.padding) classes.push(`[padding:${sanitize(s.padding)}]`);
+    if (s.padding) {
+        const pClass = `[padding:${sanitize(s.padding)}]`;
+        classes.push(pClass);
+        // console.log('Generating padding class:', pClass); 
+    }
     if (s.fontSize) classes.push(`text-[${sanitize(s.fontSize)}]`);
   });
   classes.push(`rounded-[${sanitize(base.borderRadius)}]`);
@@ -54,7 +58,6 @@ function inputSafelist() {
     if (s.padding) classes.push(`[padding:${sanitize(s.padding)}]`);
     if (s.fontSize) classes.push(`text-[${sanitize(s.fontSize)}]`);
   });
-  classes.push(`rounded-[${sanitize(base.borderRadius)}]`);
   classes.push(`[transition:${sanitize(base.transition)}]`);
   return classes;
 }

@@ -4,7 +4,7 @@ import { InputNative } from './input-skin-native';
 import { inputSkinContractDef } from './input-skin-contract';
 
 describe('InputNative Component', () => {
-  const { variants, sizes } = inputSkinContractDef;
+  const { sizes } = inputSkinContractDef;
 
   it('should render with default props', () => {
     render(<InputNative placeholder="Native Input" />);
@@ -31,7 +31,7 @@ describe('InputNative Component', () => {
   });
 
   it('should handle disabled state', () => {
-    render(<InputNative isDisabled />);
+    render(<InputNative disabled />);
     const input = screen.getByRole('textbox');
     expect(input).toBeDisabled();
     
