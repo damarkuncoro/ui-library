@@ -9,6 +9,55 @@ const { variants, sizes } = shapeSkinContractDef;
 // Helper to construct arbitrary values without confusing Tailwind scanner
 const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
+// Helper to generate variant classes dynamically from Contract
+// This ensures strict adherence to shape-skin-contract.ts
+type ShapeVariantDef = typeof variants[keyof typeof variants];
+
+const createVariantClasses = (variant: ShapeVariantDef) => {
+  const classes: string[] = [];
+  
+  if (variant.borderRadius) {
+    classes.push(`rounded-[${sanitize(variant.borderRadius)}]`);
+  }
+  
+  if ('aspectRatio' in variant && variant.aspectRatio) {
+    classes.push(`aspect-[${sanitize(variant.aspectRatio)}]`);
+  }
+
+  return classes.join(' ');
+};
+
+type ShapeSizeDef = typeof sizes[keyof typeof sizes];
+
+const createSizeClasses = (size: ShapeSizeDef) => {
+  const classes: string[] = [];
+
+  if (size.width) classes.push(tw('w', size.width));
+  if (size.height) classes.push(tw('h', size.height));
+  if ('fontSize' in size && size.fontSize) {
+    classes.push(tw('text', size.fontSize));
+  }
+
+  return classes.join(' ');
+};
+
+// Pre-computed class maps using the Factory Pattern
+// Now, if contract changes, these maps update automatically!
+const variantClasses = {
+  square: createVariantClasses(variants.square),
+  circle: createVariantClasses(variants.circle),
+  pill: createVariantClasses(variants.pill),
+  box: createVariantClasses(variants.box),
+};
+
+const sizeClasses = {
+  sm: createSizeClasses(sizes.sm),
+  md: createSizeClasses(sizes.md),
+  lg: createSizeClasses(sizes.lg),
+  xl: createSizeClasses(sizes.xl),
+  full: createSizeClasses(sizes.full),
+};
+
 export const ShapeSkinTailwind = forwardRef<HTMLDivElement, ShapeContract>((props, ref) => {
   const {
     variant = 'box',
@@ -20,40 +69,22 @@ export const ShapeSkinTailwind = forwardRef<HTMLDivElement, ShapeContract>((prop
   } = props;
 
   const classes = useMemo(() => {
-    const variantDef = variants[variant as keyof typeof variants] || variants.box;
-    const sizeDef = sizes[size as keyof typeof sizes] || sizes.md;
+    // 1. Get Base Classes
+    const variantClass = variantClasses[variant] || variantClasses.box;
+    const sizeClass = sizeClasses[size] || sizeClasses.md;
 
     const classList = [
-      'inline-flex', // Default to inline-flex for shapes
+      'inline-flex',
       'items-center',
       'justify-center',
       'overflow-hidden',
-      tw('bg', tokens.colors.secondary.main), // Use semantic token instead of raw Tailwind class
       'border',
-      tw('border', tokens.colors.neutral.border),
+      // Use arbitrary values for tokens to ensure they are picked up by JIT
+      `bg-[${sanitize(tokens.colors.secondary.main)}]`,
+      `border-[${sanitize(tokens.colors.neutral.border)}]`,
+      variantClass,
+      sizeClass,
     ];
-
-    // Variant Styles
-    if (variantDef.borderRadius) {
-      classList.push(tw('rounded', variantDef.borderRadius));
-    }
-    
-    if ('aspectRatio' in variantDef) {
-      classList.push(tw('aspect', variantDef.aspectRatio as string));
-    }
-
-    // Size Styles
-    if (sizeDef.width) {
-      classList.push(tw('w', sizeDef.width));
-    }
-    
-    if (sizeDef.height) {
-      classList.push(tw('h', sizeDef.height));
-    }
-    
-    if ('fontSize' in sizeDef) {
-      classList.push(tw('text', sizeDef.fontSize as string));
-    }
 
     return `${classList.join(' ')} ${className}`;
   }, [variant, size, className]);

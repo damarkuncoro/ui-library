@@ -7,7 +7,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      
+      "@damarkuncoro/ui-library": ["../../src/index.ts"]
     },
     "types": ["vite/client"]
   },
