@@ -1,0 +1,43 @@
+/* Fallback CSS classes mapping to CSS Variables
+   Ensures dynamic classes like bg-[var(--...)] work even when Tailwind scanning misses them.
+   Focus is on core color utilities used by Button/Input skins.
+*/
+
+/* Background Colors */
+.bg-\[var\(--color-primary-main\)\] { background-color: var(--color-primary-main); }
+.bg-\[var\(--color-primary-hover\)\] { background-color: var(--color-primary-hover); }
+.bg-\[var\(--color-secondary-main\)\] { background-color: var(--color-secondary-main); }
+.bg-\[var\(--color-secondary-hover\)\] { background-color: var(--color-secondary-hover); }
+.bg-\[var\(--color-danger-main\)\] { background-color: var(--color-danger-main); }
+.bg-\[var\(--color-danger-hover\)\] { background-color: var(--color-danger-hover); }
+.bg-\[var\(--color-neutral-bg\)\] { background-color: var(--color-neutral-bg); }
+.bg-\[var\(--color-neutral-bg-surface\)\] { background-color: var(--color-neutral-bg-surface); }
+.bg-\[transparent\] { background-color: transparent; }
+
+/* Hover Backgrounds */
+.hover\:bg-\[var\(--color-primary-hover\)\]:hover { background-color: var(--color-primary-hover); }
+.hover\:bg-\[var\(--color-secondary-hover\)\]:hover { background-color: var(--color-secondary-hover); }
+.hover\:bg-\[var\(--color-danger-hover\)\]:hover { background-color: var(--color-danger-hover); }
+.hover\:bg-\[var\(--color-neutral-bg\)\]:hover { background-color: var(--color-neutral-bg); }
+
+/* Text Colors */
+.text-\[var\(--color-primary-contrast\)\] { color: var(--color-primary-contrast); }
+.text-\[var\(--color-secondary-contrast\)\] { color: var(--color-secondary-contrast); }
+.text-\[var\(--color-danger-contrast\)\] { color: var(--color-danger-contrast); }
+.text-\[var\(--color-neutral-text\)\] { color: var(--color-neutral-text); }
+.text-\[var\(--color-neutral-text-secondary\)\] { color: var(--color-neutral-text-secondary); }
+
+/* Border Colors */
+.border-\[var\(--color-neutral-border\)\] { border-color: var(--color-neutral-border); }
+.hover\:border-\[var\(--color-neutral-border\)\]:hover { border-color: var(--color-neutral-border); }
+.border-b-\[var\(--color-neutral-border\)\] { border-bottom-color: var(--color-neutral-border); }
+.hover\:border-b-\[var\(--color-neutral-border\)\]:hover { border-bottom-color: var(--color-neutral-border); }
+
+/* Placeholder Colors */
+.placeholder\:text-\[var\(--color-neutral-text\)\]::placeholder { color: var(--color-neutral-text); }
+.placeholder\:text-\[var\(--color-neutral-text-secondary\)\]::placeholder { color: var(--color-neutral-text-secondary); }
+
+/* Disabled state helpers */
+.disabled\:opacity-\[0\.5\]:disabled { opacity: 0.5; }
+.disabled\:cursor-\[not-allowed\]:disabled { cursor: not-allowed; }
+

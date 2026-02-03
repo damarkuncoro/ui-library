@@ -1,0 +1,69 @@
+{
+  "name": "@damarkuncoro/ui-library",
+  "version": "0.0.2",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/esm/index.d.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    },
+    "./tailwind": {
+      "types": "./lib/esm/tailwind.d.ts",
+      "import": "./lib/esm/tailwind.js",
+      "require": "./lib/cjs/tailwind.js"
+    },
+    "./tailwind/v3": {
+      "types": "./lib/esm/tailwind-v3.d.ts",
+      "import": "./lib/esm/tailwind-v3.js",
+      "require": "./lib/cjs/tailwind-v3.js"
+    },
+    "./tailwind/v4": {
+      "types": "./lib/esm/tailwind-v4.d.ts",
+      "import": "./lib/esm/tailwind-v4.js",
+      "require": "./lib/cjs/tailwind-v4.js"
+    },
+    "./styles/contract-fallback.css": {
+      "import": "./lib/esm/styles/contract-fallback.css",
+      "require": "./lib/cjs/styles/contract-fallback.css"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && tsc -p tsconfig.build.esm.json && tsc -p tsconfig.build.cjs.json && echo '{\"type\": \"module\"}' > lib/esm/package.json && echo '{\"type\": \"commonjs\"}' > lib/cjs/package.json && mkdir -p lib/esm/styles lib/cjs/styles && cp -R src/styles/* lib/esm/styles/ && cp -R src/styles/* lib/cjs/styles/",
+    "test": "vitest",
+    "prepublishOnly": "npm run build",
+    "meta-architecture": "meta-architecture"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@damarkuncoro/meta-architecture": "latest"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/node": "^25.2.0",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^26.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3",
+    "vite": "^6.0.11",
+    "vitest": "^4.0.18"
+  },
+  "author": "Damar Kuncoro",
+  "packageManager": "pnpm@10.26.0+sha512.3b3f6c725ebe712506c0ab1ad4133cf86b1f4b687effce62a9b38b4d72e3954242e643190fc51fa1642949c735f403debd44f5cb0edd657abe63a8b6a7e1e402"
+}
