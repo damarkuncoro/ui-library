@@ -1,7 +1,8 @@
-import { Button, Input } from '@damarkuncoro/ui-library'
+import { Button, Input, useTheme } from '@damarkuncoro/ui-library'
 import { Link } from 'react-router-dom'
 
 export function Home() {
+  const { mode, toggleMode } = useTheme()
   return (
     <div className="min-h-screen bg-neutral-bg flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md bg-neutral-bg-surface rounded-xl shadow-lg p-8 space-y-6 border border-neutral-border">
@@ -10,6 +11,12 @@ export function Home() {
           <p className="text-neutral-text-secondary">
             Testing @damarkuncoro/ui-library components
           </p>
+        </div>
+
+        <div className="flex justify-end">
+          <button onClick={toggleMode} className="text-sm px-3 py-1 border border-neutral-border rounded-md text-neutral-text hover:bg-neutral-border">
+            Toggle Theme ({mode})
+          </button>
         </div>
 
         <div className="space-y-4">

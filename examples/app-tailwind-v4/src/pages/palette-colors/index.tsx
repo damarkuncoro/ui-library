@@ -27,20 +27,20 @@ export function PaletteColors() {
         <div className="bg-neutral-bg-surface p-6 rounded-lg shadow-sm space-y-8 border border-neutral-border">
           
           <ColorSection title="Primary Colors">
-            <ColorSwatch name="Primary Main" colorClass="bg-[var(--color-primary-main)]" textClass="text-[var(--color-primary-contrast)]" />
-            <ColorSwatch name="Primary Hover" colorClass="bg-[var(--color-primary-hover)]" textClass="text-[var(--color-primary-contrast)]" />
+            <ColorSwatch name="Primary Main" colorClass="bg-[var(--color-primary-main)]" textClass="text-primary-contrastText" />
+            <ColorSwatch name="Primary Hover" colorClass="bg-[var(--color-primary-hover)]" textClass="text-primary-contrastText" />
             <ColorSwatch name="Primary Focus" colorClass="bg-[var(--color-primary-focus)]" textClass="text-white" />
           </ColorSection>
 
           <ColorSection title="Secondary Colors">
-            <ColorSwatch name="Secondary Main" colorClass="bg-[var(--color-secondary-main)]" textClass="text-[var(--color-secondary-contrast)]" />
-            <ColorSwatch name="Secondary Hover" colorClass="bg-[var(--color-secondary-hover)]" textClass="text-[var(--color-secondary-contrast)]" />
+            <ColorSwatch name="Secondary Main" colorClass="bg-[var(--color-secondary-main)]" textClass="text-secondary-contrastText" />
+            <ColorSwatch name="Secondary Hover" colorClass="bg-[var(--color-secondary-hover)]" textClass="text-secondary-contrastText" />
             <ColorSwatch name="Secondary Focus" colorClass="bg-[var(--color-secondary-focus)]" textClass="text-white" />
           </ColorSection>
 
           <ColorSection title="Danger Colors">
-            <ColorSwatch name="Danger Main" colorClass="bg-[var(--color-danger-main)]" textClass="text-[var(--color-danger-contrast)]" />
-            <ColorSwatch name="Danger Hover" colorClass="bg-[var(--color-danger-hover)]" textClass="text-[var(--color-danger-contrast)]" />
+            <ColorSwatch name="Danger Main" colorClass="bg-[var(--color-danger-main)]" textClass="text-danger-contrastText" />
+            <ColorSwatch name="Danger Hover" colorClass="bg-[var(--color-danger-hover)]" textClass="text-danger-contrastText" />
             <ColorSwatch name="Danger Focus" colorClass="bg-[var(--color-danger-focus)]" textClass="text-white" />
           </ColorSection>
 
