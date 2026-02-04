@@ -20,6 +20,7 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonContract>(
       isLoading,
       leftIcon,
       rightIcon,
+      paddingX, // Destructure to prevent passing to DOM
       type = 'button',
       className,
       ...props

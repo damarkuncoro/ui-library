@@ -211,6 +211,27 @@ export function ButtonAccessibilityExamples() {
 }
 
 // ============================================================================
+// PADDING EXAMPLES
+// ============================================================================
+
+export function ButtonPaddingExamples() {
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-4 items-center flex-wrap">
+        <ButtonTailwind>Default Padding</ButtonTailwind>
+        <ButtonTailwind paddingX={8}>paddingX=8 (32px)</ButtonTailwind>
+        <ButtonTailwind paddingX={12}>paddingX=12 (48px)</ButtonTailwind>
+      </div>
+
+      <div className="flex gap-4 items-center flex-wrap">
+        <ButtonTailwind paddingX="2rem">paddingX="2rem"</ButtonTailwind>
+        <ButtonTailwind paddingX="50px">paddingX="50px"</ButtonTailwind>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
 // CUSTOM STYLING EXAMPLES
 // ============================================================================
 
@@ -289,6 +310,11 @@ export function AllButtonExamples() {
       <div className="p-4 border rounded space-y-2">
         <h3 className="font-bold">Accessibility</h3>
         <ButtonAccessibilityExamples />
+      </div>
+
+      <div className="p-4 border rounded space-y-2">
+        <h3 className="font-bold">Padding Customization</h3>
+        <ButtonPaddingExamples />
       </div>
 
       <div className="p-4 border rounded space-y-2">

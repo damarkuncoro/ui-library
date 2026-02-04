@@ -95,6 +95,13 @@ export interface ButtonContract extends ButtonHTMLAttributes<HTMLButtonElement> 
   size?: ButtonSize;
 
   /**
+   * Custom horizontal padding.
+   * Can be a number (Tailwind spacing scale) or string (CSS value).
+   * Overrides the default padding defined by the size variant.
+   */
+  paddingX?: number | string;
+
+  /**
    * Whether the button is in a loading state.
    */
   isLoading?: boolean;

@@ -5,7 +5,8 @@ import {
   ButtonStateExamples, 
   ButtonCombinedExamples,
   ButtonNativeSkinExamples,
-  ButtonAccessibilityExamples
+  ButtonAccessibilityExamples,
+  ButtonPaddingExamples
 } from '@damarkuncoro/ui-library';
 import { PageLayout } from '../../../components/common/page-layout';
 import { PageHeader } from '../../../components/common/page-header';
@@ -67,6 +68,13 @@ export function ButtonPage() {
           description="Built-in keyboard navigation and ARIA support."
         >
           <ButtonAccessibilityExamples />
+        </ExampleSection>
+
+        <ExampleSection 
+          title="Padding Customization" 
+          description="Override default horizontal padding with the paddingX prop."
+        >
+          <ButtonPaddingExamples />
         </ExampleSection>
       </div>
     </PageLayout>

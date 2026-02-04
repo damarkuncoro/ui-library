@@ -17,6 +17,7 @@ export const ButtonTailwind = forwardRef<HTMLButtonElement, ButtonContract>(
     {
       variant = 'primary',
       size = 'md',
+      paddingX,
       className = '',
       ...props
     },
@@ -27,8 +28,9 @@ export const ButtonTailwind = forwardRef<HTMLButtonElement, ButtonContract>(
       baseClasses,
       variantClasses[variant],
       sizeClasses[size],
+      paddingX !== undefined && (typeof paddingX === 'number' ? `px-${paddingX}` : `px-[${paddingX}]`),
       className
-    ), [variant, size, className]);
+    ), [variant, size, paddingX, className]);
 
     return (
       <ButtonBase
@@ -36,6 +38,7 @@ export const ButtonTailwind = forwardRef<HTMLButtonElement, ButtonContract>(
         className={combinedClassName}
         variant={variant}
         size={size}
+        paddingX={paddingX}
         {...props}
       />
     );
