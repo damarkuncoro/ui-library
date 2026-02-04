@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { compileStyle } from './compiler';
-import { validateContract } from './governance';
+import { compileStyle } from '../core/compiler';
+import { validateContract } from '../core/governance';
 
 describe('Styling Constitution Engine (SCE) v0.1', () => {
   

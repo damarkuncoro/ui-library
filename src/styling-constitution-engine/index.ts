@@ -9,7 +9,7 @@
 // TYPE EXPORTS
 // ============================================================================
 
-export * from './types';
+export * from './core/types';
 
 // ============================================================================
 // STYLE ENGINE EXPORTS
@@ -19,7 +19,7 @@ export {
   StyleEngine,
   createStyleEngine,
   defaultConstitution,
-} from './style-engine';
+} from './core/style-engine';
 
 // ============================================================================
 // SPECIFICATION EXPORTS
@@ -27,7 +27,7 @@ export {
 
 export {
   StyleEngine as StyleEngineSpec,
-} from './style-engine';
+} from './core/style-engine';
 
 // ============================================================================
 // RE-EXPORTS FOR CONVENIENCE
@@ -40,8 +40,14 @@ export type {
   CompilationResult,
   CompilationWarning,
   ValidationError,
-} from './types';
+} from './core/types';
 
 export {
   defaultConstitution as constitution,
-} from './style-engine';
+} from './core/style-engine';
+
+// ============================================================================
+// REACT INTEGRATION EXPORTS
+// ============================================================================
+
+export * from './react';

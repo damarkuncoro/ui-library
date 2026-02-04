@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import { Constitution } from '../types';
-import { StyleEngine, createStyleEngine } from '../style-engine';
-import { designConstitution } from '../constitution';
+import { Constitution } from '../core/types';
+import { StyleEngine, createStyleEngine } from '../core/style-engine';
+import { designConstitution } from '../core/constitution';
 
 interface ConstitutionalContextType {
   engine: StyleEngine;

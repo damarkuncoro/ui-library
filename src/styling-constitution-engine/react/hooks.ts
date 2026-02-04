@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import { useConstitutionalContext } from './provider';
-import { ValidationResult } from '../types';
+import { ValidationResult } from '../core/types';
 
 /**
  * Hook to validate styling classes against the constitution

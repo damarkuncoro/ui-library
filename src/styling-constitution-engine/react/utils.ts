@@ -1,4 +1,4 @@
-import { validateContract } from '../governance';
+import { validateContract } from '../core/governance';
 
 /**
  * Constitutional Class Name Merger

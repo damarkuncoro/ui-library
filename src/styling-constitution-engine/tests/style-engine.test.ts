@@ -4,8 +4,8 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { StyleEngine, createStyleEngine, defaultConstitution } from './style-engine';
-import { Constitution } from './types';
+import { StyleEngine, createStyleEngine, defaultConstitution } from '../core/style-engine';
+import { Constitution } from '../core/types';
 
 describe('StyleEngine', () => {
   let styleEngine: StyleEngine;
@@ -188,6 +188,10 @@ describe('StyleEngine', () => {
         sm: '0.5rem',
         md: '1rem',
         lg: '1.5rem'
+      },
+      aspectRatio: {
+        square: '1/1',
+        video: '16/9'
       }
     };
 
