@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { colorContractDef } from './contracts/color-contract';
-import { themes } from './design-tokens';
+import { colorContractDef } from '../contracts/color-contract';
+import { themes } from '../core/design-tokens';
 
 // Helper to extract variable names from values like "var(--color-primary-main)"
 const extractVarName = (val: string) => {

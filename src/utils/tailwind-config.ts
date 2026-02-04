@@ -1,4 +1,4 @@
-import { cssVars } from '../theme/design-tokens';
+import { cssVars } from '../theme/core/design-tokens';
 import { generateButtonSafelist, generateInputSafelist, generateShapeSafelist, generateTextSafelist } from './tailwind/index';
 
 export const sharedPreset = {

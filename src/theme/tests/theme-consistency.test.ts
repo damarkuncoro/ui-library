@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { tokens, themes } from './design-tokens';
-import { bordersContract } from './contracts/borders-contract';
+import { tokens, themes } from '../core/design-tokens';
+import { bordersContract } from '../contracts/borders-contract';
 
 describe('Theme Consistency Test', () => {
   describe('Radius Token Consistency', () => {

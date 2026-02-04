@@ -1,5 +1,5 @@
-import { defaultStylingEngine } from '../theme/styling-engine';
-import { colorContractDef } from '../theme/contracts/color-contract';
+import { defaultStylingEngine } from '../../theme/core/styling-engine';
+import { colorContractDef } from '../../theme/contracts/color-contract';
 import { Constitution } from './types';
 
 // Adapting the existing StylingEngine to the Constitution interface

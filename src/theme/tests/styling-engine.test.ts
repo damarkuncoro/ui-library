@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { defaultStylingEngine } from './styling-engine';
-import { colorPalette } from './contracts/color-contract';
-import { spacingContract } from './contracts/spacing-contract';
+import { defaultStylingEngine } from '../core/styling-engine';
+import { colorPalette } from '../contracts/color-contract';
+import { spacingContract } from '../contracts/spacing-contract';
 
 describe('Styling Engine Contract', () => {
   it('should export a valid styling engine implementation', () => {
