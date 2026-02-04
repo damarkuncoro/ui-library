@@ -24,6 +24,8 @@ import { isolationContract } from './contracts/isolation-contract';
 import { objectFitContract } from './contracts/object-fit-contract';
 import { objectPositionContract } from './contracts/object-position-contract';
 import { overflowContract } from './contracts/overflow-contract';
+import { overscrollBehaviorContract } from './contracts/overscroll-behavior-contract';
+import { positionContract } from './contracts/position-contract';
 import { accessibilityContract } from './contracts/accessibility-contract';
 import { interactivityContract } from './contracts/interactivity-contract';
 import { transitionsContract } from './contracts/transitions-contract';
@@ -59,6 +61,8 @@ export const isolation = isolationContract;
 export const objectFit = objectFitContract;
 export const objectPosition = objectPositionContract;
 export const overflow = overflowContract;
+export const overscrollBehavior = overscrollBehaviorContract;
+export const position = positionContract;
 export const accessibility = accessibilityContract;
 export const interactivity = interactivityContract;
 export const transitions = transitionsContract;
@@ -231,6 +235,8 @@ export const tokens = {
   objectFit: objectFit.objectFit,
   objectPosition: objectPosition.objectPosition,
   overflow: overflow.overflow,
+  overscrollBehavior: overscrollBehavior.overscrollBehavior,
+  position: position.position,
   spacing: spacing,
   screens: layout.screens,
   zIndex: layout.zIndex,
