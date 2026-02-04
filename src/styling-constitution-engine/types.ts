@@ -52,6 +52,7 @@ export interface Constitution {
   gridTemplateColumns: Record<string, string>;
   gridTemplateRows: Record<string, string>;
   gap: Record<string, string>;
+  aspectRatio: Record<string, string>;
 }
 
 /**

@@ -57,6 +57,12 @@ const PREFIX_CONFIG: Record<string, Config> = {
   'order': { prop: 'order', cat: 'order', var: '--order' },
   'grow': { prop: 'flex-grow', cat: 'flexGrow', var: '--grow' },
   'shrink': { prop: 'flex-shrink', cat: 'flexShrink', var: '--shrink' },
+  'top': { prop: 'top', cat: 'spacing', var: '--space' },
+  'right': { prop: 'right', cat: 'spacing', var: '--space' },
+  'bottom': { prop: 'bottom', cat: 'spacing', var: '--space' },
+  'left': { prop: 'left', cat: 'spacing', var: '--space' },
+  'inset': { prop: 'inset', cat: 'spacing', var: '--space' },
+  'aspect': { prop: 'aspect-ratio', cat: 'aspectRatio', var: '--aspect' },
 };
 
 export function resolveContract(className: string): TokenResolution {
@@ -108,7 +114,8 @@ export function resolveContract(className: string): TokenResolution {
       'justify-start', 'justify-end', 'justify-center', 'justify-between', 'justify-around', 'justify-evenly',
       'self-auto', 'self-start', 'self-end', 'self-center', 'self-stretch',
       'content-center', 'content-start', 'content-end', 'content-between', 'content-around', 'content-evenly',
-      'object-contain', 'object-cover', 'object-fill', 'object-none', 'object-scale-down'
+      'object-contain', 'object-cover', 'object-fill', 'object-none', 'object-scale-down',
+      'min-w-0'
   ]);
 
   if (STATIC_UTILITIES.has(baseClass)) {

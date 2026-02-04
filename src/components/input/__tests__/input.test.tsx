@@ -16,20 +16,20 @@ describe('Input Component System', () => {
     });
 
     it('should use typography tokens for sizes', () => {
-      expect(sizeClasses.sm).toContain(tokens.typography.fontSize.xs);
-      expect(sizeClasses.md).toContain(tokens.typography.fontSize.sm);
-      expect(sizeClasses.lg).toContain(tokens.typography.fontSize.base);
+      expect(sizeClasses.sm).toContain('text-xs');
+      expect(sizeClasses.md).toContain('text-sm');
+      expect(sizeClasses.lg).toContain('text-base');
     });
 
     it('should apply correct padding classes', () => {
       // Test small size padding
-      expect(sizeClasses.sm).toContain(`px-[${inputSkinContractDef.sizes.sm.paddingX}]`);
+      expect(sizeClasses.sm).toContain('px-3');
       
       // Test medium size padding
-      expect(sizeClasses.md).toContain(`px-[${inputSkinContractDef.sizes.md.paddingX}]`);
+      expect(sizeClasses.md).toContain('px-4');
       
       // Test large size padding
-      expect(sizeClasses.lg).toContain(`px-[${inputSkinContractDef.sizes.lg.paddingX}]`);
+      expect(sizeClasses.lg).toContain('px-6');
     });
   });
 
@@ -50,14 +50,14 @@ describe('Input Component System', () => {
       expect(screen.getByTestId('icon')).toBeInTheDocument();
       // Input should have padding left
       const input = screen.getByRole('textbox');
-      expect(input).toHaveClass(`pl-[${tokens.sizing[10]}]`);
+      expect(input).toHaveClass('pl-10');
     });
 
     it('should handle disabled state', () => {
       render(<InputTailwind disabled />);
       const input = screen.getByRole('textbox');
       expect(input).toBeDisabled();
-      expect(input).toHaveClass(`disabled:opacity-[${disabled.opacity}]`);
+      expect(input).toHaveClass('disabled:opacity-50');
     });
 
     it('should handle invalid state', () => {

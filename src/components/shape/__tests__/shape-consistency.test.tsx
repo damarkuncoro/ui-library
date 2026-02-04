@@ -23,7 +23,8 @@ describe('ShapeSkinTailwind Consistency with Contract', () => {
 
         // Check Aspect Ratio
         if ('aspectRatio' in variantDef) {
-           const expectedClass = `aspect-[${sanitize(variantDef.aspectRatio as string)}]`;
+           const val = variantDef.aspectRatio as string;
+           const expectedClass = val === '1/1' ? 'aspect-square' : `aspect-[${sanitize(val)}]`;
            expect(classList).toContain(expectedClass);
         }
       });

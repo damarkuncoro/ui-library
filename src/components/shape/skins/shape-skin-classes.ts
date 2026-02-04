@@ -14,7 +14,11 @@ const createVariantClasses = (variant: ShapeVariantDef) => {
   }
   
   if ('aspectRatio' in variant && variant.aspectRatio) {
-    classes.push(tw('aspect', variant.aspectRatio));
+    if (variant.aspectRatio === '1/1') {
+      classes.push('aspect-square');
+    } else {
+      classes.push(tw('aspect', variant.aspectRatio));
+    }
   }
 
   return classes.join(' ');

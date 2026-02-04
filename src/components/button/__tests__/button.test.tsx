@@ -140,8 +140,8 @@ describe('Button Component Integration', () => {
     });
 
     it('should apply custom className', () => {
-      render(<ButtonTailwind className="custom-class">Button</ButtonTailwind>);
-      expect(screen.getByRole('button')).toHaveClass('custom-class');
+      render(<ButtonTailwind className="text-red-500">Button</ButtonTailwind>);
+      expect(screen.getByRole('button')).toHaveClass('text-red-500');
     });
 
     it('should pass through additional props', () => {
@@ -185,9 +185,9 @@ describe('Button Component Integration', () => {
     });
     
     it('should merge custom className with base classes', () => {
-      render(<ButtonTailwind className="custom-class">Button</ButtonTailwind>);
+      render(<ButtonTailwind className="text-red-500">Button</ButtonTailwind>);
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('custom-class');
+      expect(button).toHaveClass('text-red-500');
       // Should also have base classes
       expect(button).toHaveClass('inline-flex'); 
     });

@@ -10,8 +10,8 @@ describe('ShapeSkinTailwind', () => {
     const classList = shape.className;
 
     // Check aspect ratio class
-    // Note: tokens.aspectRatio.square is '1/1', so sanitized is '1/1'
-    expect(classList).toContain('aspect-[1/1]');
+    // Note: tokens.aspectRatio.square is '1/1', which maps to aspect-square
+    expect(classList).toContain('aspect-square');
     
     // Check width class is present (md width = sizing[12])
     // We don't check exact value here, just that 'w-' exists
@@ -41,7 +41,7 @@ describe('ShapeSkinTailwind', () => {
     const shape = screen.getByTestId('shape-circle');
     const classList = shape.className;
 
-    expect(classList).toContain('aspect-[1/1]');
+    expect(classList).toContain('aspect-square');
     expect(classList).not.toMatch(/h-\[[^\]]+\]/);
   });
 });

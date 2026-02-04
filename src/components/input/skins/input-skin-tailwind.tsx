@@ -8,7 +8,8 @@ import {
   errorClasses, 
   sizeClasses, 
   inputBase, 
-  wrapperBase 
+  wrapperBase,
+  iconClasses
 } from './input-skin-classes';
 
 // Helper to access contract values
@@ -44,8 +45,8 @@ export const InputTailwind = forwardRef<HTMLInputElement, InputBaseProps>(
       invalidClass,
       sizeClass,
       // Icon Padding
-      leftIcon ? tw('pl', icons.padding) : '',
-      rightIcon ? tw('pr', icons.padding) : '',
+      leftIcon ? iconClasses.paddingLeft : '',
+      rightIcon ? iconClasses.paddingRight : '',
       inputClassName
     ), [variantClass, invalidClass, sizeClass, leftIcon, rightIcon, inputClassName]);
 
@@ -54,8 +55,8 @@ export const InputTailwind = forwardRef<HTMLInputElement, InputBaseProps>(
       wrapperBase,
       className,
       // Icon positioning
-      `[&_.input-icon-left]:absolute [&_.input-icon-left]:${tw('left', icons.position)} [&_.input-icon-left]:z-10 [&_.input-icon-left]:${tw('text', icons.color)} [&_.input-icon-left]:aria-hidden=true`,
-      `[&_.input-icon-right]:absolute [&_.input-icon-right]:${tw('right', icons.position)} [&_.input-icon-right]:z-10 [&_.input-icon-right]:${tw('text', icons.color)} [&_.input-icon-right]:aria-hidden=true`
+      iconClasses.wrapperLeft,
+      iconClasses.wrapperRight
     ), [className]);
 
     return (

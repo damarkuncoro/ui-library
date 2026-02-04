@@ -50,6 +50,11 @@ export const designConstitution: Constitution = {
   flexGrow: defaultStylingEngine.flex.grow as unknown as Record<string, string>,
   flexShrink: defaultStylingEngine.flex.shrink as unknown as Record<string, string>,
   order: defaultStylingEngine.flex.order as unknown as Record<string, string>,
+  // Grid
+  gridTemplateColumns: defaultStylingEngine.grid.cols as unknown as Record<string, string>,
+  gridTemplateRows: defaultStylingEngine.grid.rows as unknown as Record<string, string>,
+  gap: defaultStylingEngine.spacing as unknown as Record<string, string>,
+  aspectRatio: defaultStylingEngine.aspectRatio.aspectRatio as unknown as Record<string, string>,
 };
 
 // Helper to flatten nested colors

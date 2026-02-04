@@ -3,7 +3,38 @@ import { tokens } from '../../../theme/design-tokens';
 import { sanitize, tw } from '../../../utils/tailwind/helpers';
 
 // Helper to access contract values
-const { variants, sizes, base, disabled } = inputSkinContractDef;
+const { variants, sizes, base, disabled, icons } = inputSkinContractDef;
+
+// Maps for contract values to standard utilities (SCE compliance)
+const heightMap: Record<string, string> = {
+  [tokens.sizing[8]]: 'h-8',
+  [tokens.sizing[10]]: 'h-10',
+  [tokens.sizing[12]]: 'h-12',
+};
+
+const paddingMap: Record<string, string> = {
+  [tokens.spacing[3]]: 'px-3',
+  [tokens.spacing[4]]: 'px-4',
+  [tokens.spacing[6]]: 'px-6',
+  [tokens.spacing[10]]: '10', // For icon padding (pl-10, pr-10)
+};
+
+const fontMap: Record<string, string> = {
+  [tokens.typography.fontSize.xs]: 'text-xs',
+  [tokens.typography.fontSize.sm]: 'text-sm',
+  [tokens.typography.fontSize.base]: 'text-base',
+};
+
+const opacityMap: Record<string, string> = {
+  [tokens.opacity.disabled]: 'opacity-50', // 0.5 -> 50
+};
+
+const getSizeClass = (val: string, type: 'h' | 'px' | 'text') => {
+  if (type === 'h') return heightMap[val] || tw('h', val);
+  if (type === 'px') return paddingMap[val] || tw('px', val);
+  if (type === 'text') return fontMap[val] || tw('text', val);
+  return '';
+};
 
 // Helper to generate variant classes (DRY)
 type InputVariant = typeof variants[keyof typeof variants];
@@ -69,9 +100,29 @@ export const errorClasses = {
 };
 
 export const sizeClasses = {
-  sm: [tw('h', sizes.sm.height), tw('px', sizes.sm.paddingX), tw('text', sizes.sm.fontSize)].join(' '),
-  md: [tw('h', sizes.md.height), tw('px', sizes.md.paddingX), tw('text', sizes.md.fontSize)].join(' '),
-  lg: [tw('h', sizes.lg.height), tw('px', sizes.lg.paddingX), tw('text', sizes.lg.fontSize)].join(' '),
+  sm: [
+    getSizeClass(sizes.sm.height, 'h'),
+    getSizeClass(sizes.sm.paddingX, 'px'),
+    getSizeClass(sizes.sm.fontSize, 'text')
+  ].join(' '),
+  md: [
+    getSizeClass(sizes.md.height, 'h'),
+    getSizeClass(sizes.md.paddingX, 'px'),
+    getSizeClass(sizes.md.fontSize, 'text')
+  ].join(' '),
+  lg: [
+    getSizeClass(sizes.lg.height, 'h'),
+    getSizeClass(sizes.lg.paddingX, 'px'),
+    getSizeClass(sizes.lg.fontSize, 'text')
+  ].join(' '),
+};
+
+// Icon Classes
+export const iconClasses = {
+  paddingLeft: paddingMap[icons.padding] ? `pl-${paddingMap[icons.padding]}` : tw('pl', icons.padding),
+  paddingRight: paddingMap[icons.padding] ? `pr-${paddingMap[icons.padding]}` : tw('pr', icons.padding),
+  wrapperLeft: `[&_.input-icon-left]:absolute [&_.input-icon-left]:left-3 [&_.input-icon-left]:z-10 [&_.input-icon-left]:${tw('text', icons.color)}`,
+  wrapperRight: `[&_.input-icon-right]:absolute [&_.input-icon-right]:right-3 [&_.input-icon-right]:z-10 [&_.input-icon-right]:${tw('text', icons.color)}`,
 };
 
 // Base styles (Wrapper)
@@ -82,7 +133,7 @@ export const inputBase = [
   'w-full min-w-0 outline-none',
   `[transition:${sanitize(base.transition)}]`,
   tw('rounded', base.borderRadius),
-  `disabled:${tw('opacity', disabled.opacity)}`,
-  `disabled:${tw('cursor', disabled.cursor)}`,
+  `disabled:${opacityMap[disabled.opacity] || tw('opacity', disabled.opacity)}`,
+  'disabled:cursor-not-allowed',
   `disabled:${tw('bg', disabled.backgroundColor)}`
 ].join(' ');
