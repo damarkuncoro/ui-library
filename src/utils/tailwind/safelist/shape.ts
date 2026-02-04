@@ -1,8 +1,6 @@
 import { shapeSkinContractDef } from '../../../components/shape/shape-skin-contract.js';
 import { tokens } from '../../../theme/design-tokens.js';
-import { sanitize } from '../helpers.js';
-
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
+import { sanitize, tw } from '../helpers.js';
 
 // Generator for Shape Safelist
 export function generateShapeSafelist() {
@@ -10,13 +8,13 @@ export function generateShapeSafelist() {
   const classes: string[] = [];
 
   // Base Classes (Hardcoded in Skin)
-  classes.push(`bg-[${sanitize(tokens.colors.secondary.main)}]`);
-  classes.push(`border-[${sanitize(tokens.colors.neutral.border)}]`);
+  classes.push(tw('bg', tokens.colors.secondary.main));
+  classes.push(tw('border', tokens.colors.neutral.border));
 
   // Variants
   Object.values(variants).forEach((v: any) => {
-    if (v.borderRadius) classes.push(`rounded-[${sanitize(v.borderRadius)}]`);
-    if (v.aspectRatio) classes.push(`aspect-[${sanitize(v.aspectRatio)}]`);
+    if (v.borderRadius) classes.push(tw('rounded', v.borderRadius));
+    if (v.aspectRatio) classes.push(tw('aspect', v.aspectRatio));
   });
 
   // Sizes

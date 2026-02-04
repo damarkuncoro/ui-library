@@ -3,13 +3,10 @@ import { ButtonContract } from './button-contract';
 import { ButtonBase } from './button-base';
 import { buttonSkinContractDef } from './button-skin-contract';
 import { tokens } from '../../theme/design-tokens';
-import { sanitize } from '../../utils/tailwind/helpers';
+import { sanitize, tw } from '../../utils/tailwind/helpers';
 
 // Helper to access contract values
 const { variants, sizes, base, disabled, icons, loader } = buttonSkinContractDef;
-
-// Helper to construct arbitrary values without confusing Tailwind scanner
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
 // Helper to generate variant classes (DRY)
 type ButtonVariant = typeof variants[keyof typeof variants];

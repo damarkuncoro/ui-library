@@ -76,17 +76,17 @@ export const inputSkinContractDef = {
   sizes: {
     sm: {
       height: tokens.sizing[8],
-      padding: `0 ${tokens.spacing[3]}`, // 12px
+      paddingX: tokens.spacing[3], // 12px
       fontSize: tokens.typography.fontSize.xs,
     },
     md: {
       height: tokens.sizing[10],
-      padding: `0 ${tokens.spacing[4]}`, // 16px
+      paddingX: tokens.spacing[4], // 16px
       fontSize: tokens.typography.fontSize.sm,
     },
     lg: {
       height: tokens.sizing[12],
-      padding: `0 ${tokens.spacing[6]}`, // 24px
+      paddingX: tokens.spacing[6], // 24px
       fontSize: tokens.typography.fontSize.base,
     },
   },

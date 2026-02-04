@@ -1,8 +1,6 @@
 import { buttonSkinContractDef } from '../../../components/button/button-skin-contract.js';
 import { tokens } from '../../../theme/design-tokens.js';
-import { sanitize } from '../helpers.js';
-
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
+import { sanitize, tw } from '../helpers.js';
 
 // Generator for Button Safelist
 export function generateButtonSafelist() {

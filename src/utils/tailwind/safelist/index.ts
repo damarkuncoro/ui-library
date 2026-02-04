@@ -1,4 +1,4 @@
 export * from './button.js';
 export * from './input.js';
-export * from './color.js';
 export * from './shape.js';
+export * from './text.js';

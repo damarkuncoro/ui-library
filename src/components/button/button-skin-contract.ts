@@ -85,22 +85,22 @@ export const buttonSkinContractDef = {
   // Size specifications
   sizes: {
     sm: {
-      height: tokens.sizing[8],
-      paddingX: tokens.spacing[3], // 12px
-      fontSize: tokens.typography.fontSize.xs,
-      iconSize: tokens.sizing.icon.sm,
-    },
-    md: {
-      height: tokens.sizing[10],
+      height: tokens.sizing[10], // 40px
       paddingX: tokens.spacing[4], // 16px
       fontSize: tokens.typography.fontSize.sm,
       iconSize: tokens.sizing.icon.md,
     },
-    lg: {
-      height: tokens.sizing[12],
+    md: {
+      height: tokens.sizing[12], // 48px
       paddingX: tokens.spacing[6], // 24px
       fontSize: tokens.typography.fontSize.base,
       iconSize: tokens.sizing.icon.lg,
+    },
+    lg: {
+      height: tokens.sizing[14], // 56px
+      paddingX: tokens.spacing[8], // 32px
+      fontSize: tokens.typography.fontSize.lg,
+      iconSize: tokens.sizing.icon.xl,
     },
   },
   

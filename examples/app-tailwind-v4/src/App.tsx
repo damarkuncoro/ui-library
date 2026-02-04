@@ -5,6 +5,7 @@ import { PaletteColors } from './pages/palette-colors'
 import { ButtonPage } from './pages/components/button'
 import { InputPage } from './pages/components/input'
 import { ShapePage } from './pages/components/shape'
+import { SafelistPage } from './pages/safelist-tw-v4'
 import { LayoutPage } from './pages/tailwind-v4/Layout'
 import { FlexboxPage } from './pages/tailwind-v4/Flexbox'
 import { GridPage } from './pages/tailwind-v4/Grid'
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/tailwind-v4/Accessibility" element={<AccessibilityPage />} />
             <Route path="/tailwind-v4/Interactivity" element={<InteractivityPage />} />
             <Route path="/tailwind-v4/SVG" element={<SVGPage />} />
+            <Route path="/safelist-tw-v4" element={<SafelistPage />} />
           </Routes>
         </BrowserRouter>
       

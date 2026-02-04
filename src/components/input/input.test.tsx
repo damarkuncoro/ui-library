@@ -19,6 +19,17 @@ describe('Input Component System', () => {
       expect(sizeClasses.md).toContain(tokens.typography.fontSize.sm);
       expect(sizeClasses.lg).toContain(tokens.typography.fontSize.base);
     });
+
+    it('should apply correct padding classes', () => {
+      // Test small size padding
+      expect(sizeClasses.sm).toContain(`px-[${inputSkinContractDef.sizes.sm.paddingX}]`);
+      
+      // Test medium size padding
+      expect(sizeClasses.md).toContain(`px-[${inputSkinContractDef.sizes.md.paddingX}]`);
+      
+      // Test large size padding
+      expect(sizeClasses.lg).toContain(`px-[${inputSkinContractDef.sizes.lg.paddingX}]`);
+    });
   });
 
   describe('InputTailwind Rendering', () => {

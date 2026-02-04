@@ -1,7 +1,5 @@
 import { inputSkinContractDef } from '../../../components/input/input-skin-contract.js';
-import { sanitize } from '../helpers.js';
-
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
+import { sanitize, tw } from '../helpers.js';
 
 // Generator for Input Safelist
 export function generateInputSafelist() {
@@ -33,7 +31,7 @@ export function generateInputSafelist() {
   // Sizes
   Object.values(sizes).forEach((s: any) => {
     if (s.height) classes.push(tw('h', s.height));
-    if (s.padding) classes.push(tw('p', s.padding));
+    if (s.paddingX) classes.push(tw('px', s.paddingX));
     if (s.fontSize) classes.push(tw('text', s.fontSize));
   });
   

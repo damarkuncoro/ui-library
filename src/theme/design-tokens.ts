@@ -13,6 +13,17 @@ import { animationContract } from './contracts/animation-contract';
 import { aspectRatioContract } from './contracts/aspect-ratio-contract';
 import { columnsContract } from './contracts/columns-contract';
 import { breakAfterContract } from './contracts/break-after-contract';
+import { breakBeforeContract } from './contracts/break-before-contract';
+import { breakInsideContract } from './contracts/break-inside-contract';
+import { boxDecorationBreakContract } from './contracts/box-decoration-break-contract';
+import { boxSizingContract } from './contracts/box-sizing-contract';
+import { displayContract } from './contracts/display-contract';
+import { floatContract } from './contracts/float-contract';
+import { clearContract } from './contracts/clear-contract';
+import { isolationContract } from './contracts/isolation-contract';
+import { objectFitContract } from './contracts/object-fit-contract';
+import { objectPositionContract } from './contracts/object-position-contract';
+import { overflowContract } from './contracts/overflow-contract';
 import { accessibilityContract } from './contracts/accessibility-contract';
 import { interactivityContract } from './contracts/interactivity-contract';
 import { transitionsContract } from './contracts/transitions-contract';
@@ -37,6 +48,17 @@ export const animation = animationContract;
 export const aspectRatio = aspectRatioContract;
 export const columns = columnsContract;
 export const breakAfter = breakAfterContract;
+export const breakBefore = breakBeforeContract;
+export const breakInside = breakInsideContract;
+export const boxDecorationBreak = boxDecorationBreakContract;
+export const boxSizing = boxSizingContract;
+export const display = displayContract;
+export const float = floatContract;
+export const clear = clearContract;
+export const isolation = isolationContract;
+export const objectFit = objectFitContract;
+export const objectPosition = objectPositionContract;
+export const overflow = overflowContract;
 export const accessibility = accessibilityContract;
 export const interactivity = interactivityContract;
 export const transitions = transitionsContract;
@@ -198,6 +220,17 @@ export const tokens = {
   aspectRatio: aspectRatio.aspectRatio,
   columns: columns.columns,
   breakAfter: breakAfter.breakAfter,
+  breakBefore: breakBefore.breakBefore,
+  breakInside: breakInside.breakInside,
+  boxDecorationBreak: boxDecorationBreak.boxDecorationBreak,
+  boxSizing: boxSizing.boxSizing,
+  display: display.display,
+  float: float.float,
+  clear: clear.clear,
+  isolation: isolation.isolation,
+  objectFit: objectFit.objectFit,
+  objectPosition: objectPosition.objectPosition,
+  overflow: overflow.overflow,
   spacing: spacing,
   screens: layout.screens,
   zIndex: layout.zIndex,

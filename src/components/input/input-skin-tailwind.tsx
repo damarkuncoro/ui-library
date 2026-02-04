@@ -2,13 +2,10 @@ import { forwardRef, useMemo } from 'react';
 import { InputBase, InputBaseProps } from './input-base';
 import { inputSkinContractDef } from './input-skin-contract';
 import { tokens } from '../../theme/design-tokens';
-import { sanitize } from '../../utils/tailwind/helpers';
+import { sanitize, tw } from '../../utils/tailwind/helpers';
 
 // Helper to access contract values
 const { variants, sizes, base, disabled, icons } = inputSkinContractDef;
-
-// Helper to construct arbitrary values without confusing Tailwind scanner
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
 // Helper to generate variant classes (DRY)
 type InputVariant = typeof variants[keyof typeof variants];
@@ -74,9 +71,9 @@ export const errorClasses = {
 };
 
 export const sizeClasses = {
-  sm: [tw('h', sizes.sm.height), tw('p', sizes.sm.padding), tw('text', sizes.sm.fontSize)].join(' '),
-  md: [tw('h', sizes.md.height), tw('p', sizes.md.padding), tw('text', sizes.md.fontSize)].join(' '),
-  lg: [tw('h', sizes.lg.height), tw('p', sizes.lg.padding), tw('text', sizes.lg.fontSize)].join(' '),
+  sm: [tw('h', sizes.sm.height), tw('px', sizes.sm.paddingX), tw('text', sizes.sm.fontSize)].join(' '),
+  md: [tw('h', sizes.md.height), tw('px', sizes.md.paddingX), tw('text', sizes.md.fontSize)].join(' '),
+  lg: [tw('h', sizes.lg.height), tw('px', sizes.lg.paddingX), tw('text', sizes.lg.fontSize)].join(' '),
 };
 
 // Base styles (Wrapper)

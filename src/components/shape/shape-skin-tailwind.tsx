@@ -1,13 +1,10 @@
 import { forwardRef, useMemo } from 'react';
 import { ShapeContract } from './shape-contract';
 import { shapeSkinContractDef } from './shape-skin-contract';
-import { sanitize } from '../../utils/tailwind/helpers';
+import { sanitize, tw } from '../../utils/tailwind/helpers';
 import { tokens } from '../../theme/design-tokens';
 
 const { variants, sizes } = shapeSkinContractDef;
-
-// Helper to construct arbitrary values without confusing Tailwind scanner
-const tw = (prefix: string, val: string | number) => `${prefix}-[${sanitize(val)}]`;
 
 // Helper to generate variant classes dynamically from Contract
 // This ensures strict adherence to shape-skin-contract.ts
@@ -17,11 +14,11 @@ const createVariantClasses = (variant: ShapeVariantDef) => {
   const classes: string[] = [];
   
   if (variant.borderRadius) {
-    classes.push(`rounded-[${sanitize(variant.borderRadius)}]`);
+    classes.push(tw('rounded', variant.borderRadius));
   }
   
   if ('aspectRatio' in variant && variant.aspectRatio) {
-    classes.push(`aspect-[${sanitize(variant.aspectRatio)}]`);
+    classes.push(tw('aspect', variant.aspectRatio));
   }
 
   return classes.join(' ');
@@ -102,8 +99,8 @@ export const ShapeSkinTailwind = forwardRef<HTMLDivElement, ShapeContract>((prop
       'overflow-hidden',
       'border',
       // Use arbitrary values for tokens to ensure they are picked up by JIT
-      `bg-[${sanitize(tokens.colors.secondary.main)}]`,
-      `border-[${sanitize(tokens.colors.neutral.border)}]`,
+      tw('bg', tokens.colors.secondary.main),
+      tw('border', tokens.colors.neutral.border),
       variantClass,
       sizeClass,
     ];

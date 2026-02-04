@@ -74,17 +74,20 @@ const invalidStyles: Record<string, CSSProperties> = {
 const sizeStyles: Record<string, CSSProperties> = {
   sm: {
     height: sizes.sm.height,
-    padding: sizes.sm.padding,
+    paddingLeft: sizes.sm.paddingX,
+    paddingRight: sizes.sm.paddingX,
     fontSize: sizes.sm.fontSize,
   },
   md: {
     height: sizes.md.height,
-    padding: sizes.md.padding,
+    paddingLeft: sizes.md.paddingX,
+    paddingRight: sizes.md.paddingX,
     fontSize: sizes.md.fontSize,
   },
   lg: {
     height: sizes.lg.height,
-    padding: sizes.lg.padding,
+    paddingLeft: sizes.lg.paddingX,
+    paddingRight: sizes.lg.paddingX,
     fontSize: sizes.lg.fontSize,
   },
 };

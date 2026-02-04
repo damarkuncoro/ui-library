@@ -104,6 +104,12 @@ export function NavigationSections() {
       path: '/tailwind-v4/SVG',
       color: 'sky',
     },
+    {
+      title: 'Safelist Checker',
+      description: 'View all safelisted Tailwind CSS classes generated from component contracts',
+      path: '/safelist-tw-v4',
+      color: 'lime',
+    },
   ];
 
   const colorClasses: Record<string, string> = {
@@ -124,6 +130,7 @@ export function NavigationSections() {
     slate: 'bg-slate-500 hover:bg-slate-600',
     zinc: 'bg-zinc-500 hover:bg-zinc-600',
     sky: 'bg-sky-500 hover:bg-sky-600',
+    lime: 'bg-lime-500 hover:bg-lime-600',
   };
 
   return (

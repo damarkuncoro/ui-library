@@ -1,5 +1,5 @@
 import { cssVars } from '../theme/design-tokens.js';
-import { generateButtonSafelist, generateInputSafelist, generateShapeSafelist } from './tailwind/index.js';
+import { generateButtonSafelist, generateInputSafelist, generateShapeSafelist, generateTextSafelist } from './tailwind/index.js';
 
 export const sharedPreset = {
   theme: {
@@ -12,6 +12,7 @@ export const sharedPreset = {
     ...generateButtonSafelist(),
     ...generateInputSafelist(),
     ...generateShapeSafelist(),
+    ...generateTextSafelist(),
   ],
   plugins: [],
 };
