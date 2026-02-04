@@ -82,17 +82,20 @@ const focusStyles: Record<string, CSSProperties> = {
 const sizeStyles: Record<string, CSSProperties> = {
   sm: {
     height: buttonSkinContractDef.sizes.sm.height,
-    padding: buttonSkinContractDef.sizes.sm.padding,
+    paddingLeft: buttonSkinContractDef.sizes.sm.paddingX,
+    paddingRight: buttonSkinContractDef.sizes.sm.paddingX,
     fontSize: buttonSkinContractDef.sizes.sm.fontSize,
   },
   md: {
     height: buttonSkinContractDef.sizes.md.height,
-    padding: buttonSkinContractDef.sizes.md.padding,
+    paddingLeft: buttonSkinContractDef.sizes.md.paddingX,
+    paddingRight: buttonSkinContractDef.sizes.md.paddingX,
     fontSize: buttonSkinContractDef.sizes.md.fontSize,
   },
   lg: {
     height: buttonSkinContractDef.sizes.lg.height,
-    padding: buttonSkinContractDef.sizes.lg.padding,
+    paddingLeft: buttonSkinContractDef.sizes.lg.paddingX,
+    paddingRight: buttonSkinContractDef.sizes.lg.paddingX,
     fontSize: buttonSkinContractDef.sizes.lg.fontSize,
   },
 };

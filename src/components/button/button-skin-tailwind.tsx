@@ -43,9 +43,9 @@ export const variantClasses = {
 };
 
 export const sizeClasses = {
-  sm: [tw('h', sizes.sm.height), tw('p', sizes.sm.padding), tw('text', sizes.sm.fontSize)].join(' '),
-  md: [tw('h', sizes.md.height), tw('p', sizes.md.padding), tw('text', sizes.md.fontSize)].join(' '),
-  lg: [tw('h', sizes.lg.height), tw('p', sizes.lg.padding), tw('text', sizes.lg.fontSize)].join(' '),
+  sm: [tw('h', sizes.sm.height), tw('px', sizes.sm.paddingX), tw('text', sizes.sm.fontSize)].join(' '),
+  md: [tw('h', sizes.md.height), tw('px', sizes.md.paddingX), tw('text', sizes.md.fontSize)].join(' '),
+  lg: [tw('h', sizes.lg.height), tw('px', sizes.lg.paddingX), tw('text', sizes.lg.fontSize)].join(' '),
 };
 
 // Base layout and interaction styles

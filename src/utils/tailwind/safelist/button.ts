@@ -24,7 +24,7 @@ export function generateButtonSafelist() {
   // Sizes
   Object.values(sizes).forEach((s: any) => {
     if (s.height) classes.push(tw('h', s.height));
-    if (s.padding) classes.push(tw('p', s.padding));
+    if (s.paddingX) classes.push(tw('px', s.paddingX));
     if (s.fontSize) classes.push(tw('text', s.fontSize));
   });
 

@@ -177,6 +177,14 @@ describe('Button Component Integration', () => {
         const expectedHeight = sizes.lg.height;
         expect(button).toHaveClass(`h-[${expectedHeight}]`);
     });
+
+    it('should apply correct padding classes (Fix: Padding robustness)', () => {
+        render(<ButtonTailwind size="md">Padding Test</ButtonTailwind>);
+        const button = screen.getByRole('button');
+        // Should use px-[...] instead of p-[...]
+        expect(button.className).toMatch(/px-\[[^\]]+\]/);
+        expect(button.className).not.toMatch(/p-\[[^\]]+\]/);
+    });
     
     it('should merge custom className with base classes', () => {
       render(<ButtonTailwind className="custom-class">Button</ButtonTailwind>);
