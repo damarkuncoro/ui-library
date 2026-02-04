@@ -1,9 +1,14 @@
 import { forwardRef } from 'react';
 import { ShapeContract } from '../contracts/shape-contract';
-import { ShapeSkinTailwind } from '../skins/shape-skin-tailwind';
 
-export const Shape = forwardRef<HTMLDivElement, ShapeContract>((props, ref) => {
-  return <ShapeSkinTailwind {...props} ref={ref} />;
+export const ShapeBase = forwardRef<HTMLDivElement, ShapeContract>((props, ref) => {
+  const { as: Component = 'div', children, ...rest } = props as any; // Allow polymorphism if needed later, currently div
+  
+  return (
+    <div ref={ref} {...rest}>
+      {children}
+    </div>
+  );
 });
 
-Shape.displayName = 'Shape';
+ShapeBase.displayName = 'ShapeBase';

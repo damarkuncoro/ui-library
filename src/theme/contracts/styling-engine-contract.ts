@@ -1,0 +1,108 @@
+import { colorPalette } from './color-contract';
+import { layoutContract } from './layout-contract';
+import { flexContract } from './flex-contract';
+import { gridContract } from './grid-contract';
+import { sizingContract } from './sizing-contract';
+import { spacingContract } from './spacing-contract';
+import { typographyContract } from './typography-contract';
+import { bordersContract } from './borders-contract';
+import { backgroundsContract } from './backgrounds-contract';
+import { effectsContract } from './effects-contract';
+import { tablesContract } from './tables-contract';
+import { animationContract } from './animation-contract';
+import { aspectRatioContract } from './aspect-ratio-contract';
+import { columnsContract } from './columns-contract';
+import { breakAfterContract } from './break-after-contract';
+import { breakBeforeContract } from './break-before-contract';
+import { breakInsideContract } from './break-inside-contract';
+import { boxDecorationBreakContract } from './box-decoration-break-contract';
+import { boxSizingContract } from './box-sizing-contract';
+import { displayContract } from './display-contract';
+import { floatContract } from './float-contract';
+import { clearContract } from './clear-contract';
+import { isolationContract } from './isolation-contract';
+import { objectFitContract } from './object-fit-contract';
+import { objectPositionContract } from './object-position-contract';
+import { overflowContract } from './overflow-contract';
+import { overscrollBehaviorContract } from './overscroll-behavior-contract';
+import { positionContract } from './position-contract';
+import { insetContract } from './inset-contract';
+import { accessibilityContract } from './accessibility-contract';
+import { interactivityContract } from './interactivity-contract';
+import { transitionsContract } from './transitions-contract';
+import { transformsContract } from './transforms-contract';
+
+// --- STYLING ENGINE CONTRACT ---
+// This contract defines the shape of the styling engine (Design Tokens).
+// It serves as the "Schema" for the UI Library's theming system.
+// Any implementation (Tailwind, CSS-in-JS, Native) must adhere to this contract.
+
+export type ColorPaletteContract = typeof colorPalette;
+export type LayoutContract = typeof layoutContract;
+export type FlexContract = typeof flexContract;
+export type GridContract = typeof gridContract;
+export type SizingContract = typeof sizingContract;
+export type SpacingContract = typeof spacingContract;
+export type TypographyContract = typeof typographyContract;
+export type BordersContract = typeof bordersContract;
+export type BackgroundsContract = typeof backgroundsContract;
+export type EffectsContract = typeof effectsContract;
+export type TablesContract = typeof tablesContract;
+export type AnimationContract = typeof animationContract;
+export type AspectRatioContract = typeof aspectRatioContract;
+export type ColumnsContract = typeof columnsContract;
+export type BreakAfterContract = typeof breakAfterContract;
+export type BreakBeforeContract = typeof breakBeforeContract;
+export type BreakInsideContract = typeof breakInsideContract;
+export type BoxDecorationBreakContract = typeof boxDecorationBreakContract;
+export type BoxSizingContract = typeof boxSizingContract;
+export type DisplayContract = typeof displayContract;
+export type FloatContract = typeof floatContract;
+export type ClearContract = typeof clearContract;
+export type IsolationContract = typeof isolationContract;
+export type ObjectFitContract = typeof objectFitContract;
+export type ObjectPositionContract = typeof objectPositionContract;
+export type OverflowContract = typeof overflowContract;
+export type OverscrollBehaviorContract = typeof overscrollBehaviorContract;
+export type PositionContract = typeof positionContract;
+export type InsetContract = typeof insetContract;
+export type AccessibilityContract = typeof accessibilityContract;
+export type InteractivityContract = typeof interactivityContract;
+export type TransitionsContract = typeof transitionsContract;
+export type TransformsContract = typeof transformsContract;
+
+export interface StylingEngineContract {
+  palette: ColorPaletteContract;
+  layout: LayoutContract;
+  flex: FlexContract;
+  grid: GridContract;
+  sizing: SizingContract;
+  spacing: SpacingContract;
+  typography: TypographyContract;
+  borders: BordersContract;
+  backgrounds: BackgroundsContract;
+  effects: EffectsContract;
+  tables: TablesContract;
+  animation: AnimationContract;
+  aspectRatio: AspectRatioContract;
+  columns: ColumnsContract;
+  breakAfter: BreakAfterContract;
+  breakBefore: BreakBeforeContract;
+  breakInside: BreakInsideContract;
+  boxDecorationBreak: BoxDecorationBreakContract;
+  boxSizing: BoxSizingContract;
+  display: DisplayContract;
+  float: FloatContract;
+  clear: ClearContract;
+  isolation: IsolationContract;
+  objectFit: ObjectFitContract;
+  objectPosition: ObjectPositionContract;
+  overflow: OverflowContract;
+  overscrollBehavior: OverscrollBehaviorContract;
+  position: PositionContract;
+  inset: InsetContract;
+  accessibility: AccessibilityContract;
+  interactivity: InteractivityContract;
+  transitions: TransitionsContract;
+  transforms: TransformsContract;
+}

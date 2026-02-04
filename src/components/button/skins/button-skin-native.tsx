@@ -1,7 +1,14 @@
 import { forwardRef, CSSProperties, useState, useMemo } from 'react';
 import { ButtonContract } from '../contracts/button-contract';
 import { ButtonBase } from '../base/button-base';
-import { buttonSkinContractDef } from '../contracts/button-skin-contract';
+import {
+  baseStyles,
+  disabledStyles,
+  variantStyles,
+  hoverStyles,
+  focusStyles,
+  sizeStyles
+} from './button-skin-native-styles';
 
 // --- FRAMEWORK AGNOSTIC SKIN ---
 // This implementation uses standard React `style` objects (CSS-in-JS lite).
@@ -9,49 +16,6 @@ import { buttonSkinContractDef } from '../contracts/button-skin-contract';
 // You can replace this with Styled-Components, Emotion, Stitches, or Vanilla CSS Modules.
 //
 // Styles are derived from the skin contract to ensure consistency across all implementations.
-
-const baseStyles: CSSProperties = buttonSkinContractDef.base;
-
-const disabledStyles: CSSProperties = buttonSkinContractDef.disabled;
-
-// --- DRY Style Generators ---
-
-// Helper type for the variant definition union
-type VariantDef = typeof buttonSkinContractDef.variants[keyof typeof buttonSkinContractDef.variants];
-type SizeDef = typeof buttonSkinContractDef.sizes[keyof typeof buttonSkinContractDef.sizes];
-
-const generateStyles = <T,>(
-  source: Record<string, T>,
-  mapper: (def: T) => CSSProperties
-): Record<string, CSSProperties> => {
-  return Object.entries(source).reduce((acc, [key, value]) => {
-    acc[key] = mapper(value);
-    return acc;
-  }, {} as Record<string, CSSProperties>);
-};
-
-const variantStyles = generateStyles(buttonSkinContractDef.variants, (def: VariantDef) => ({
-  backgroundColor: def.backgroundColor,
-  color: def.color,
-  ...('borderColor' in def ? { borderColor: (def as any).borderColor } : {}),
-}));
-
-const hoverStyles = generateStyles(buttonSkinContractDef.variants, (def: VariantDef) => ({
-  backgroundColor: def.hover.backgroundColor,
-  ...('borderColor' in def.hover ? { borderColor: (def.hover as any).borderColor } : {}),
-}));
-
-const focusStyles = generateStyles(buttonSkinContractDef.variants, (def: VariantDef) => ({
-  outline: def.focus.outline,
-  outlineOffset: def.focus.outlineOffset,
-}));
-
-const sizeStyles = generateStyles(buttonSkinContractDef.sizes, (def: SizeDef) => ({
-  height: def.height,
-  paddingLeft: def.paddingX,
-  paddingRight: def.paddingX,
-  fontSize: def.fontSize,
-}));
 
 export const ButtonNative = forwardRef<HTMLButtonElement, ButtonContract>(
   (

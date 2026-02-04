@@ -1,74 +1,44 @@
-import { colorPalette, colorContractDef } from './contracts/color-contract';
-import { layoutContract } from './contracts/layout-contract';
-import { flexContract } from './contracts/flex-contract';
-import { gridContract } from './contracts/grid-contract';
-import { sizingContract } from './contracts/sizing-contract';
-import { spacingContract } from './contracts/spacing-contract';
-import { typographyContract } from './contracts/typography-contract';
-import { bordersContract } from './contracts/borders-contract';
-import { backgroundsContract } from './contracts/backgrounds-contract';
-import { effectsContract } from './contracts/effects-contract';
-import { tablesContract } from './contracts/tables-contract';
-import { animationContract } from './contracts/animation-contract';
-import { aspectRatioContract } from './contracts/aspect-ratio-contract';
-import { columnsContract } from './contracts/columns-contract';
-import { breakAfterContract } from './contracts/break-after-contract';
-import { breakBeforeContract } from './contracts/break-before-contract';
-import { breakInsideContract } from './contracts/break-inside-contract';
-import { boxDecorationBreakContract } from './contracts/box-decoration-break-contract';
-import { boxSizingContract } from './contracts/box-sizing-contract';
-import { displayContract } from './contracts/display-contract';
-import { floatContract } from './contracts/float-contract';
-import { clearContract } from './contracts/clear-contract';
-import { isolationContract } from './contracts/isolation-contract';
-import { objectFitContract } from './contracts/object-fit-contract';
-import { objectPositionContract } from './contracts/object-position-contract';
-import { overflowContract } from './contracts/overflow-contract';
-import { overscrollBehaviorContract } from './contracts/overscroll-behavior-contract';
-import { positionContract } from './contracts/position-contract';
-import { insetContract } from './contracts/inset-contract';
-import { accessibilityContract } from './contracts/accessibility-contract';
-import { interactivityContract } from './contracts/interactivity-contract';
-import { transitionsContract } from './contracts/transitions-contract';
-import { transformsContract } from './contracts/transforms-contract';
+import { defaultStylingEngine as engine } from './styling-engine';
+import { colorContractDef } from './contracts/color-contract';
 
 // --- GLOBAL DESIGN TOKENS ---
-// This is the "Root Contract" for the entire UI Library.
+// This is the "Runtime Adapter" for the UI Library.
+// It bridges the StylingEngineContract (Schema) to the Application Runtime.
 // All Component Skin Contracts should reference these tokens.
 
-export const palette = colorPalette;
-export const layout = layoutContract;
-export const flex = flexContract;
-export const grid = gridContract;
-export const sizing = sizingContract;
-export const spacing = spacingContract;
-export const typography = typographyContract;
-export const borders = bordersContract;
-export const backgrounds = backgroundsContract;
-export const effects = effectsContract;
-export const tables = tablesContract;
-export const animation = animationContract;
-export const aspectRatio = aspectRatioContract;
-export const columns = columnsContract;
-export const breakAfter = breakAfterContract;
-export const breakBefore = breakBeforeContract;
-export const breakInside = breakInsideContract;
-export const boxDecorationBreak = boxDecorationBreakContract;
-export const boxSizing = boxSizingContract;
-export const display = displayContract;
-export const float = floatContract;
-export const clear = clearContract;
-export const isolation = isolationContract;
-export const objectFit = objectFitContract;
-export const objectPosition = objectPositionContract;
-export const overflow = overflowContract;
-export const overscrollBehavior = overscrollBehaviorContract;
-export const position = positionContract;
-export const inset = insetContract;
-export const accessibility = accessibilityContract;
-export const interactivity = interactivityContract;
-export const transitions = transitionsContract;
-export const transforms = transformsContract;
+export const palette = engine.palette;
+export const layout = engine.layout;
+export const flex = engine.flex;
+export const grid = engine.grid;
+export const sizing = engine.sizing;
+export const spacing = engine.spacing;
+export const typography = engine.typography;
+export const borders = engine.borders;
+export const backgrounds = engine.backgrounds;
+export const effects = engine.effects;
+export const tables = engine.tables;
+export const animation = engine.animation;
+export const aspectRatio = engine.aspectRatio;
+export const columns = engine.columns;
+export const breakAfter = engine.breakAfter;
+export const breakBefore = engine.breakBefore;
+export const breakInside = engine.breakInside;
+export const boxDecorationBreak = engine.boxDecorationBreak;
+export const boxSizing = engine.boxSizing;
+export const display = engine.display;
+export const float = engine.float;
+export const clear = engine.clear;
+export const isolation = engine.isolation;
+export const objectFit = engine.objectFit;
+export const objectPosition = engine.objectPosition;
+export const overflow = engine.overflow;
+export const overscrollBehavior = engine.overscrollBehavior;
+export const position = engine.position;
+export const inset = engine.inset;
+export const accessibility = engine.accessibility;
+export const interactivity = engine.interactivity;
+export const transitions = engine.transitions;
+export const transforms = engine.transforms;
 
 // 1. Define the CSS Variable Keys (The "Contract" for the Theme)
 export const cssVars = {
@@ -116,15 +86,15 @@ const sharedThemeTokens = {
   '--container-7xl': '80rem',
 
   // Radius (Borders)
-  '--radius-none': borders.radius.none,
-  '--radius-sm': borders.radius.sm,
-  '--radius': borders.radius.DEFAULT,
-  '--radius-md': borders.radius.md,
-  '--radius-lg': borders.radius.lg,
-  '--radius-xl': borders.radius.xl,
-  '--radius-2xl': borders.radius['2xl'],
-  '--radius-3xl': borders.radius['3xl'],
-  '--radius-full': borders.radius.full,
+  '--radius-none': engine.borders.radius.none,
+  '--radius-sm': engine.borders.radius.sm,
+  '--radius': engine.borders.radius.DEFAULT,
+  '--radius-md': engine.borders.radius.md,
+  '--radius-lg': engine.borders.radius.lg,
+  '--radius-xl': engine.borders.radius.xl,
+  '--radius-2xl': engine.borders.radius['2xl'],
+  '--radius-3xl': engine.borders.radius['3xl'],
+  '--radius-full': engine.borders.radius.full,
 };
 
 // 2. Define the Actual Values for Themes
@@ -133,57 +103,57 @@ export const themes = {
     ...sharedThemeTokens,
     
     // Primary (Blue)
-    '--color-primary-main': palette.blue[600],
-    '--color-primary-hover': palette.blue[700],
-    '--color-primary-focus': palette.blue[500],
-    '--color-primary-contrast': palette.white,
+    '--color-primary-main': engine.palette.blue[600],
+    '--color-primary-hover': engine.palette.blue[700],
+    '--color-primary-focus': engine.palette.blue[500],
+    '--color-primary-contrast': engine.palette.white,
 
     // Secondary (Gray)
-    '--color-secondary-main': palette.gray[100],
-    '--color-secondary-hover': palette.gray[200],
-    '--color-secondary-focus': palette.gray[500],
-    '--color-secondary-contrast': palette.gray[900],
+    '--color-secondary-main': engine.palette.gray[100],
+    '--color-secondary-hover': engine.palette.gray[200],
+    '--color-secondary-focus': engine.palette.gray[500],
+    '--color-secondary-contrast': engine.palette.gray[900],
 
     // Danger (Red)
-    '--color-danger-main': palette.red[600],
-    '--color-danger-hover': palette.red[700],
-    '--color-danger-focus': palette.red[500],
-    '--color-danger-contrast': palette.white,
+    '--color-danger-main': engine.palette.red[600],
+    '--color-danger-hover': engine.palette.red[700],
+    '--color-danger-focus': engine.palette.red[500],
+    '--color-danger-contrast': engine.palette.white,
 
     // Neutral
-    '--color-neutral-border': palette.gray[300],
-    '--color-neutral-text': palette.gray[700],
-    '--color-neutral-text-secondary': palette.gray[500],
-    '--color-neutral-bg': palette.gray[50],
-    '--color-neutral-bg-surface': palette.white,
+    '--color-neutral-border': engine.palette.gray[300],
+    '--color-neutral-text': engine.palette.gray[700],
+    '--color-neutral-text-secondary': engine.palette.gray[500],
+    '--color-neutral-bg': engine.palette.gray[50],
+    '--color-neutral-bg-surface': engine.palette.white,
   },
   dark: {
     ...sharedThemeTokens,
 
     // Primary (Lighter Blue for Dark Mode)
-    '--color-primary-main': palette.blue[500],
-    '--color-primary-hover': palette.blue[400],
-    '--color-primary-focus': palette.blue[600],
-    '--color-primary-contrast': palette.white,
+    '--color-primary-main': engine.palette.blue[500],
+    '--color-primary-hover': engine.palette.blue[400],
+    '--color-primary-focus': engine.palette.blue[600],
+    '--color-primary-contrast': engine.palette.white,
 
     // Secondary (Darker Gray)
-    '--color-secondary-main': palette.gray[800],
-    '--color-secondary-hover': palette.gray[700],
-    '--color-secondary-focus': palette.gray[600],
-    '--color-secondary-contrast': palette.gray[100],
+    '--color-secondary-main': engine.palette.gray[800],
+    '--color-secondary-hover': engine.palette.gray[700],
+    '--color-secondary-focus': engine.palette.gray[600],
+    '--color-secondary-contrast': engine.palette.gray[100],
 
     // Danger (Lighter Red)
-    '--color-danger-main': palette.red[500],
-    '--color-danger-hover': palette.red[400],
-    '--color-danger-focus': palette.red[600],
-    '--color-danger-contrast': palette.white,
+    '--color-danger-main': engine.palette.red[500],
+    '--color-danger-hover': engine.palette.red[400],
+    '--color-danger-focus': engine.palette.red[600],
+    '--color-danger-contrast': engine.palette.white,
 
     // Neutral (Inverted)
-    '--color-neutral-border': palette.gray[600],
-    '--color-neutral-text': palette.gray[100],
-    '--color-neutral-text-secondary': palette.gray[400],
-    '--color-neutral-bg': palette.gray[900], // Dark background
-    '--color-neutral-bg-surface': palette.gray[800], // Slightly lighter for cards
+    '--color-neutral-border': engine.palette.gray[600],
+    '--color-neutral-text': engine.palette.gray[100],
+    '--color-neutral-text-secondary': engine.palette.gray[400],
+    '--color-neutral-bg': engine.palette.gray[900], // Dark background
+    '--color-neutral-bg-surface': engine.palette.gray[800], // Slightly lighter for cards
   }
 };
 
@@ -198,7 +168,7 @@ export const tokens = {
   },
   shadows: {
     ...cssVars.shadows,
-    ...effects.boxShadow,
+    ...engine.effects.boxShadow,
   },
   
   // UI Control Tokens
@@ -210,112 +180,112 @@ export const tokens = {
   // Borders (Radius, Width, Style)
   borders: {
     radius: cssVars.borders.radius, // Now uses var(--radius-*)
-    width: borders.width,
-    style: borders.style,
-    outlineWidth: borders.outlineWidth,
-    outlineOffset: borders.outlineOffset,
-    ringWidth: borders.ringWidth,
-    ringOffsetWidth: borders.ringOffsetWidth,
+    width: engine.borders.width,
+    style: engine.borders.style,
+    outlineWidth: engine.borders.outlineWidth,
+    outlineOffset: engine.borders.outlineOffset,
+    ringWidth: engine.borders.ringWidth,
+    ringOffsetWidth: engine.borders.ringOffsetWidth,
   },
 
   // Backgrounds
-  backgrounds: backgrounds,
+  backgrounds: engine.backgrounds,
 
   // Layout Tokens (Mapped to CSS Vars where applicable)
   // borderRadius removed from here, moved to borders.radius
-  aspectRatio: aspectRatio.aspectRatio,
-  columns: columns.columns,
-  breakAfter: breakAfter.breakAfter,
-  breakBefore: breakBefore.breakBefore,
-  breakInside: breakInside.breakInside,
-  boxDecorationBreak: boxDecorationBreak.boxDecorationBreak,
-  boxSizing: boxSizing.boxSizing,
-  display: display.display,
-  float: float.float,
-  clear: clear.clear,
-  isolation: isolation.isolation,
-  objectFit: objectFit.objectFit,
-  objectPosition: objectPosition.objectPosition,
-  overflow: overflow.overflow,
-  overscrollBehavior: overscrollBehavior.overscrollBehavior,
-  position: position.position,
-  inset: inset.inset,
-  spacing: spacing,
-  screens: layout.screens,
-  zIndex: layout.zIndex,
+  aspectRatio: engine.aspectRatio.aspectRatio,
+  columns: engine.columns.columns,
+  breakAfter: engine.breakAfter.breakAfter,
+  breakBefore: engine.breakBefore.breakBefore,
+  breakInside: engine.breakInside.breakInside,
+  boxDecorationBreak: engine.boxDecorationBreak.boxDecorationBreak,
+  boxSizing: engine.boxSizing.boxSizing,
+  display: engine.display.display,
+  float: engine.float.float,
+  clear: engine.clear.clear,
+  isolation: engine.isolation.isolation,
+  objectFit: engine.objectFit.objectFit,
+  objectPosition: engine.objectPosition.objectPosition,
+  overflow: engine.overflow.overflow,
+  overscrollBehavior: engine.overscrollBehavior.overscrollBehavior,
+  position: engine.position.position,
+  inset: engine.inset.inset,
+  spacing: engine.spacing,
+  screens: engine.layout.screens,
+  zIndex: engine.layout.zIndex,
   
   // Flexbox Tokens
-  flex: flex,
+  flex: engine.flex,
   
   // Grid Tokens
-  grid: grid,
+  grid: engine.grid,
 
   // Sizing Tokens
   sizing: {
-    ...sizing.values,
-    ...sizing.width, // Includes screen: 100vw
+    ...engine.sizing.values,
+    ...engine.sizing.width, // Includes screen: 100vw
     
     // Sub-categories
-    minWidth: sizing.minWidth,
-    maxWidth: sizing.maxWidth,
-    minHeight: sizing.minHeight,
-    maxHeight: sizing.maxHeight,
+    minWidth: engine.sizing.minWidth,
+    maxWidth: engine.sizing.maxWidth,
+    minHeight: engine.sizing.minHeight,
+    maxHeight: engine.sizing.maxHeight,
     
     // Component Specific
-    icon: sizing.icon,
+    icon: engine.sizing.icon,
   },
 
-  typography: typography,
+  typography: engine.typography,
   
   opacity: {
-    ...effects.opacity,
-    disabled: effects.opacity[50],
+    ...engine.effects.opacity,
+    disabled: engine.effects.opacity[50],
   },
   
   effects: {
-    mixBlendMode: effects.mixBlendMode,
-    backgroundBlendMode: effects.backgroundBlendMode,
+    mixBlendMode: engine.effects.mixBlendMode,
+    backgroundBlendMode: engine.effects.backgroundBlendMode,
     filters: {
-      blur: effects.blur,
-      brightness: effects.brightness,
-      contrast: effects.contrast,
-      dropShadow: effects.dropShadow,
-      grayscale: effects.grayscale,
-      hueRotate: effects.hueRotate,
-      invert: effects.invert,
-      saturate: effects.saturate,
-      sepia: effects.sepia,
+      blur: engine.effects.blur,
+      brightness: engine.effects.brightness,
+      contrast: engine.effects.contrast,
+      dropShadow: engine.effects.dropShadow,
+      grayscale: engine.effects.grayscale,
+      hueRotate: engine.effects.hueRotate,
+      invert: engine.effects.invert,
+      saturate: engine.effects.saturate,
+      sepia: engine.effects.sepia,
     },
     backdropFilters: {
-      blur: effects.backdropBlur,
-      brightness: effects.backdropBrightness,
-      contrast: effects.backdropContrast,
-      grayscale: effects.backdropGrayscale,
-      hueRotate: effects.backdropHueRotate,
-      invert: effects.backdropInvert,
-      opacity: effects.backdropOpacity,
-      saturate: effects.backdropSaturate,
-      sepia: effects.backdropSepia,
+      blur: engine.effects.backdropBlur,
+      brightness: engine.effects.backdropBrightness,
+      contrast: engine.effects.backdropContrast,
+      grayscale: engine.effects.backdropGrayscale,
+      hueRotate: engine.effects.backdropHueRotate,
+      invert: engine.effects.backdropInvert,
+      opacity: engine.effects.backdropOpacity,
+      saturate: engine.effects.backdropSaturate,
+      sepia: engine.effects.backdropSepia,
     }
   },
 
   // Tables Tokens
-  tables: tables,
+  tables: engine.tables,
 
   // Animation Tokens
-  animation: animation,
+  animation: engine.animation,
 
   // Accessibility Tokens
-  accessibility: accessibility,
+  accessibility: engine.accessibility,
 
   // Interactivity Tokens
-  interactivity: interactivity,
+  interactivity: engine.interactivity,
 
   transition: {
-    ...transitions,
-    base: `${transitions.transitionProperty.DEFAULT} ${transitions.transitionDuration[200]} ${transitions.transitionTimingFunction.DEFAULT}`,
+    ...engine.transitions,
+    base: `${engine.transitions.transitionProperty.DEFAULT} ${engine.transitions.transitionDuration[200]} ${engine.transitions.transitionTimingFunction.DEFAULT}`,
   },
 
   // Transforms Tokens
-  transforms: transforms,
+  transforms: engine.transforms,
 } as const;

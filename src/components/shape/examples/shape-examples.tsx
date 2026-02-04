@@ -1,4 +1,4 @@
-import { Shape } from '../base/shape-base';
+import { ShapeSkinTailwind as Shape } from '../skins/shape-skin-tailwind';
 
 export const ShapeVariantExamples = () => (
   <div className="flex flex-wrap gap-4 items-center">

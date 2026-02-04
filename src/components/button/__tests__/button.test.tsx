@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { buttonContractDef } from '../contracts/button-contract';
 import { buttonSkinContractDef } from '../contracts/button-skin-contract';
-import { variantClasses, sizeClasses } from '../skins/button-skin-tailwind';
+import { variantClasses, sizeClasses } from '../skins/button-skin-classes';
 import { ButtonTailwind } from '../skins/button-skin-tailwind';
 import { ButtonNative } from '../skins/button-skin-native';
 import { ButtonBase } from '../base/button-base';
@@ -173,17 +173,15 @@ describe('Button Component Integration', () => {
     it('should render with custom size', () => {
         render(<ButtonTailwind size="lg">Large</ButtonTailwind>);
         const button = screen.getByRole('button');
-        const { sizes } = buttonSkinContractDef;
-        const expectedHeight = sizes.lg.height;
-        expect(button).toHaveClass(`h-[${expectedHeight}]`);
+        // Now using standard utilities for SCE compliance
+        expect(button).toHaveClass('h-14');
     });
 
     it('should apply correct padding classes (Fix: Padding robustness)', () => {
         render(<ButtonTailwind size="md">Padding Test</ButtonTailwind>);
         const button = screen.getByRole('button');
-        // Should use px-[...] instead of p-[...]
-        expect(button.className).toMatch(/px-\[[^\]]+\]/);
-        expect(button.className).not.toMatch(/p-\[[^\]]+\]/);
+        // Now using standard utilities for SCE compliance
+        expect(button).toHaveClass('px-6');
     });
     
     it('should merge custom className with base classes', () => {
@@ -199,7 +197,7 @@ describe('Button Component Integration', () => {
        render(<ButtonTailwind isLoading>Loading</ButtonTailwind>);
        const button = screen.getByRole('button');
        expect(button).toHaveClass(`disabled:opacity-[${disabled.opacity}]`);
-       expect(button).toHaveClass(`disabled:cursor-[${disabled.cursor}]`);
+       expect(button).toHaveClass(`disabled:cursor-${disabled.cursor}`);
     });
 
     it('should handle disabled state', () => {
@@ -207,7 +205,7 @@ describe('Button Component Integration', () => {
       render(<ButtonTailwind disabled>Disabled</ButtonTailwind>);
       const button = screen.getByRole('button');
       expect(button).toHaveClass(`disabled:opacity-[${disabled.opacity}]`);
-      expect(button).toHaveClass(`disabled:cursor-[${disabled.cursor}]`);
+      expect(button).toHaveClass(`disabled:cursor-${disabled.cursor}`);
     });
   });
 

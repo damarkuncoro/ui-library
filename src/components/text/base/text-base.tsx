@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { TextContract } from '../contracts/text-contract';
+import type { TextContract } from '../contracts/text-contract';
 
 export const TextBase = forwardRef<HTMLElement, TextContract>(
   ({ as: Component = 'p', children, ...props }, ref) => {

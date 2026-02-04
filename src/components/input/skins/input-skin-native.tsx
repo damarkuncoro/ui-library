@@ -1,6 +1,16 @@
 import { forwardRef, CSSProperties, useState, useMemo } from 'react';
 import { InputBase, InputBaseProps } from '../base/input-base';
-import { inputSkinContractDef } from '../contracts/input-skin-contract';
+import {
+  baseStyles,
+  disabledStyles,
+  variantStyles,
+  hoverStyles,
+  focusStyles,
+  invalidStyles,
+  sizeStyles,
+  wrapperStyles,
+  iconPadding
+} from './input-skin-native-styles';
 
 // --- FRAMEWORK AGNOSTIC SKIN ---
 // This implementation uses standard React `style` objects (CSS-in-JS lite).
@@ -8,96 +18,6 @@ import { inputSkinContractDef } from '../contracts/input-skin-contract';
 // You can replace this with Styled-Components, Emotion, Stitches, or Vanilla CSS Modules.
 //
 // Styles are derived from the skin contract to ensure consistency across all implementations.
-
-const { variants, sizes, base, disabled, icons } = inputSkinContractDef;
-
-const baseStyles: CSSProperties = base;
-
-const disabledStyles: CSSProperties = disabled;
-
-const variantStyles: Record<string, CSSProperties> = {
-  outline: {
-    backgroundColor: variants.outline.backgroundColor,
-    borderColor: variants.outline.borderColor,
-    color: variants.outline.color,
-  },
-  filled: {
-    backgroundColor: variants.filled.backgroundColor,
-    borderColor: variants.filled.borderColor,
-    color: variants.filled.color,
-  },
-  flushed: {
-    backgroundColor: variants.flushed.backgroundColor,
-    borderColor: variants.flushed.borderBottomColor,
-    borderBottomColor: variants.flushed.borderBottomColor,
-    color: variants.flushed.color,
-  },
-};
-
-const hoverStyles: Record<string, CSSProperties> = {
-  outline: {
-    borderColor: variants.outline.hover.borderColor,
-  },
-  filled: {
-    backgroundColor: variants.filled.hover.backgroundColor,
-  },
-  flushed: {
-    borderBottomColor: variants.flushed.hover.borderBottomColor,
-  },
-};
-
-const focusStyles: Record<string, CSSProperties> = {
-  outline: {
-    borderColor: variants.outline.focus.borderColor,
-  },
-  filled: {
-    backgroundColor: variants.filled.focus.backgroundColor,
-    borderColor: variants.filled.focus.borderColor,
-  },
-  flushed: {
-    borderBottomColor: variants.flushed.focus.borderBottomColor,
-  },
-};
-
-const invalidStyles: Record<string, CSSProperties> = {
-  outline: {
-    borderColor: variants.outline.invalid.borderColor,
-  },
-  filled: {
-    borderColor: variants.filled.invalid.borderColor,
-  },
-  flushed: {
-    borderBottomColor: variants.flushed.invalid.borderBottomColor,
-  },
-};
-
-const sizeStyles: Record<string, CSSProperties> = {
-  sm: {
-    height: sizes.sm.height,
-    paddingLeft: sizes.sm.paddingX,
-    paddingRight: sizes.sm.paddingX,
-    fontSize: sizes.sm.fontSize,
-  },
-  md: {
-    height: sizes.md.height,
-    paddingLeft: sizes.md.paddingX,
-    paddingRight: sizes.md.paddingX,
-    fontSize: sizes.md.fontSize,
-  },
-  lg: {
-    height: sizes.lg.height,
-    paddingLeft: sizes.lg.paddingX,
-    paddingRight: sizes.lg.paddingX,
-    fontSize: sizes.lg.fontSize,
-  },
-};
-
-const wrapperStyles: CSSProperties = {
-  position: 'relative',
-  display: 'inline-flex',
-  alignItems: 'center',
-  width: '100%',
-};
 
 export const InputNative = forwardRef<HTMLInputElement, InputBaseProps>(
   (
@@ -152,8 +72,8 @@ export const InputNative = forwardRef<HTMLInputElement, InputBaseProps>(
     // Calculate padding for icons
     // Note: In a real Native implementation, we would need to handle this more robustly
     // potentially by merging with size styles.
-    const iconPaddingLeft = leftIcon ? icons.padding : undefined;
-    const iconPaddingRight = rightIcon ? icons.padding : undefined;
+    const iconPaddingLeft = leftIcon ? iconPadding : undefined;
+    const iconPaddingRight = rightIcon ? iconPadding : undefined;
 
     // Merge styles: Base + Variant + Size + Hover + Focus + Invalid + Disabled + User Overrides
     const combinedStyle: CSSProperties = useMemo(() => ({
