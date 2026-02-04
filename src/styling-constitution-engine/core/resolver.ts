@@ -62,6 +62,9 @@ const PREFIX_CONFIG: Record<string, Config> = {
   'bottom': { prop: 'bottom', cat: 'spacing', var: '--space' },
   'left': { prop: 'left', cat: 'spacing', var: '--space' },
   'inset': { prop: 'inset', cat: 'spacing', var: '--space' },
+  'gap': { prop: 'gap', cat: 'spacing', var: '--space' },
+  'gap-x': { prop: 'column-gap', cat: 'spacing', var: '--space' },
+  'gap-y': { prop: 'row-gap', cat: 'spacing', var: '--space' },
   'aspect': { prop: 'aspect-ratio', cat: 'aspectRatio', var: '--aspect' },
 };
 

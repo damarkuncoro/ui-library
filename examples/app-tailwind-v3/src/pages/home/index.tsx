@@ -50,6 +50,9 @@ export function Home() {
             <Link to="/components/input" className="text-sm text-blue-600 hover:text-blue-800 underline">
               View Input Examples
             </Link>
+            <Link to="/components/stack" className="text-sm text-blue-600 hover:text-blue-800 underline">
+              View Stack Examples
+            </Link>
           </div>
         </div>
         

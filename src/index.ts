@@ -10,9 +10,11 @@ export * from './components/shape';
 // Text Component Exports
 export * from './components/text';
 
+// Stack Component Exports
+export * from './components/stack';
+
 // Theme Exports
 export * from './theme';
 
 // Tailwind Safelist Exports
 export * from './utils/tailwind/safelist';
-

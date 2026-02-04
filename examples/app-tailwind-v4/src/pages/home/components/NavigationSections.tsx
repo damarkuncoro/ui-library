@@ -1,6 +1,33 @@
 import React from 'react';
 
 export function NavigationSections() {
+  const componentSections = [
+    {
+      title: 'Button',
+      description: 'Interactive button component with various variants and sizes',
+      path: '/components/button',
+      color: 'blue',
+    },
+    {
+      title: 'Input',
+      description: 'Form input component for capturing user text',
+      path: '/components/input',
+      color: 'green',
+    },
+    {
+      title: 'Shape',
+      description: 'Polymorphic shape component for building layouts',
+      path: '/components/shape',
+      color: 'purple',
+    },
+    {
+      title: 'Stack',
+      description: 'Layout primitive for vertical and horizontal stacking',
+      path: '/components/stack',
+      color: 'orange',
+    },
+  ];
+
   const sections = [
     {
       title: 'Layout',
@@ -136,6 +163,41 @@ export function NavigationSections() {
   return (
     <section className="py-16 px-8">
       <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-neutral-text mb-4 text-center">
+          UI Components
+        </h2>
+        <p className="text-neutral-text-secondary mb-12 text-center max-w-2xl mx-auto">
+          Ready-to-use React components built with the UI Library.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {componentSections.map((section) => (
+            <a
+              key={section.path}
+              href={section.path}
+              className="group block p-6 bg-white border border-neutral-border rounded-lg hover:shadow-xl hover:border-blue-500 transition-all duration-300"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-lg font-semibold text-neutral-text group-hover:text-blue-500 transition-colors">
+                  {section.title}
+                </h3>
+                <div className={`w-8 h-8 rounded-full ${colorClasses[section.color]} flex items-center justify-center text-white text-sm font-medium`}>
+                  {section.title[0]}
+                </div>
+              </div>
+              <p className="text-sm text-neutral-text-secondary mb-4 line-clamp-2">
+                {section.description}
+              </p>
+              <div className="flex items-center text-blue-500 text-sm font-medium group-hover:translate-x-1 transition-transform">
+                <span>View</span>
+                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+
         <h2 className="text-3xl font-bold text-neutral-text mb-4 text-center">
           Explore Tailwind v4 Utilities
         </h2>
