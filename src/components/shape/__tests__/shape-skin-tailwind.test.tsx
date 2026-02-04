@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { ShapeSkinTailwind } from './shape-skin-tailwind';
-import { tokens } from '../../theme/design-tokens';
+import { ShapeSkinTailwind } from '../skins/shape-skin-tailwind';
 
 describe('ShapeSkinTailwind', () => {
   it('should verify square variant uses aspect-ratio and excludes fixed height', () => {

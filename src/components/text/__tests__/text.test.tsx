@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { TextSkinTailwind } from './text-skin-tailwind';
+import { TextSkinTailwind } from '../skins/text-skin-tailwind';
 
 describe('Text Component', () => {
   it('should render with default props', () => {

@@ -1,6 +1,6 @@
 import { forwardRef, CSSProperties, useState, useMemo } from 'react';
-import { InputBase, InputBaseProps } from './input-base';
-import { inputSkinContractDef } from './input-skin-contract';
+import { InputBase, InputBaseProps } from '../base/input-base';
+import { inputSkinContractDef } from '../contracts/input-skin-contract';
 
 // --- FRAMEWORK AGNOSTIC SKIN ---
 // This implementation uses standard React `style` objects (CSS-in-JS lite).

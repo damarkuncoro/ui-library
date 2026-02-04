@@ -1,4 +1,4 @@
-import { Shape } from './shape-base';
+import { Shape } from '../base/shape-base';
 
 export const ShapeVariantExamples = () => (
   <div className="flex flex-wrap gap-4 items-center">

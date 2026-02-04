@@ -1,8 +1,8 @@
 import { forwardRef, useMemo } from 'react';
-import { InputBase, InputBaseProps } from './input-base';
-import { inputSkinContractDef } from './input-skin-contract';
-import { tokens } from '../../theme/design-tokens';
-import { sanitize, tw } from '../../utils/tailwind/helpers';
+import { InputBase, InputBaseProps } from '../base/input-base';
+import { inputSkinContractDef } from '../contracts/input-skin-contract';
+import { tokens } from '../../../theme/design-tokens';
+import { sanitize, tw } from '../../../utils/tailwind/helpers';
 
 // Helper to access contract values
 const { variants, sizes, base, disabled, icons } = inputSkinContractDef;

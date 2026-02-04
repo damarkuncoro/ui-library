@@ -1,3 +1,3 @@
-export * from './text-contract';
-export * from './text-skin-contract';
-export * from './text-skin-tailwind';
+export * from './contracts/text-contract';
+export * from './contracts/text-skin-contract';
+export * from './skins/text-skin-tailwind';

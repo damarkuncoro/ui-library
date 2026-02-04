@@ -1,3 +1,3 @@
-export * from './shape-contract';
-export * from './shape-base';
-export * from './shape-examples';
+export * from './contracts/shape-contract';
+export * from './base/shape-base';
+export * from './examples/shape-examples';

@@ -1,4 +1,4 @@
-import { textSkinContractDef } from '../../../components/text/text-skin-contract';
+import { textSkinContractDef } from '../../../components/text/contracts/text-skin-contract';
 import { tw } from '../helpers';
 
 export function generateTextSafelist() {

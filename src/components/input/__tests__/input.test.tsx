@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { InputTailwind, variantClasses, sizeClasses } from './input-skin-tailwind';
-import { inputSkinContractDef } from './input-skin-contract';
-import { tokens } from '../../theme/design-tokens';
+import { InputTailwind, variantClasses, sizeClasses } from '../skins/input-skin-tailwind';
+import { inputSkinContractDef } from '../contracts/input-skin-contract';
+import { tokens } from '../../../theme/design-tokens';
 
 describe('Input Component System', () => {
   const { variants, disabled } = inputSkinContractDef;

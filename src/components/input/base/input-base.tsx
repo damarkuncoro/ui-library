@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import { InputContract } from './input-contract';
-import { inputSkinContractDef } from './input-skin-contract';
+import { InputContract } from '../contracts/input-contract';
+import { inputSkinContractDef } from '../contracts/input-skin-contract';
 
 export interface InputBaseProps extends InputContract {}
 

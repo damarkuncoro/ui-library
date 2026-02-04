@@ -1,8 +1,8 @@
 import { forwardRef, useMemo } from 'react';
-import { ShapeContract } from './shape-contract';
-import { shapeSkinContractDef } from './shape-skin-contract';
-import { tw } from '../../utils/tailwind/helpers';
-import { tokens } from '../../theme/design-tokens';
+import { ShapeContract } from '../contracts/shape-contract';
+import { shapeSkinContractDef } from '../contracts/shape-skin-contract';
+import { tw } from '../../../utils/tailwind/helpers';
+import { tokens } from '../../../theme/design-tokens';
 
 const { variants, sizes } = shapeSkinContractDef;
 

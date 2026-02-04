@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { InputNative } from './input-skin-native';
-import { inputSkinContractDef } from './input-skin-contract';
+import { InputNative } from '../skins/input-skin-native';
+import { inputSkinContractDef } from '../contracts/input-skin-contract';
 
 describe('InputNative Component', () => {
   const { sizes } = inputSkinContractDef;

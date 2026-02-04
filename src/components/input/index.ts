@@ -1,6 +1,6 @@
-export * from './input-contract';
-export * from './input-skin-contract';
-export * from './input-base';
-export { InputTailwind as Input } from './input-skin-tailwind';
-export { InputNative } from './input-skin-native';
-export * from './input-examples';
+export * from './contracts/input-contract';
+export * from './contracts/input-skin-contract';
+export * from './base/input-base';
+export { InputTailwind as Input } from './skins/input-skin-tailwind';
+export { InputNative } from './skins/input-skin-native';
+export * from './examples/input-examples';

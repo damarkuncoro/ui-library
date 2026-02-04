@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { InputTailwind as Input } from './input-skin-tailwind';
-import { InputNative } from './input-skin-native';
+import { InputTailwind as Input } from '../skins/input-skin-tailwind';
+import { InputNative } from '../skins/input-skin-native';
 
 // ============================================================================
 // VARIANT EXAMPLES

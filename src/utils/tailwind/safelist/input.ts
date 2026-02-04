@@ -1,4 +1,4 @@
-import { inputSkinContractDef } from '../../../components/input/input-skin-contract.js';
+import { inputSkinContractDef } from '../../../components/input/contracts/input-skin-contract.js';
 import { sanitize, tw } from '../helpers.js';
 
 // Generator for Input Safelist

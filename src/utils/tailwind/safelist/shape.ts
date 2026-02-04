@@ -1,4 +1,4 @@
-import { shapeSkinContractDef } from '../../../components/shape/shape-skin-contract.js';
+import { shapeSkinContractDef } from '../../../components/shape/contracts/shape-skin-contract.js';
 import { tokens } from '../../../theme/design-tokens.js';
 import { tw } from '../helpers.js';
 

@@ -1,8 +1,8 @@
 import { forwardRef, useMemo } from 'react';
-import { TextContract, TextVariant } from './text-contract';
-import { textSkinContractDef } from './text-skin-contract';
-import { tw } from '../../utils/tailwind/helpers';
-import { TextBase } from './text-base';
+import { TextContract, TextVariant } from '../contracts/text-contract';
+import { textSkinContractDef } from '../contracts/text-skin-contract';
+import { tw } from '../../../utils/tailwind/helpers';
+import { TextBase } from '../base/text-base';
 
 const { variants } = textSkinContractDef;
 

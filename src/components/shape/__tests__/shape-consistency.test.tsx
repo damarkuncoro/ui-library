@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { ShapeSkinTailwind } from './shape-skin-tailwind';
-import { shapeSkinContractDef } from './shape-skin-contract';
-import { sanitize } from '../../utils/tailwind/helpers';
-import { tokens } from '../../theme/design-tokens';
+import { ShapeSkinTailwind } from '../skins/shape-skin-tailwind';
+import { shapeSkinContractDef } from '../contracts/shape-skin-contract';
+import { sanitize } from '../../../utils/tailwind/helpers';
+import { tokens } from '../../../theme/design-tokens';
 
 describe('ShapeSkinTailwind Consistency with Contract', () => {
   const { variants, sizes } = shapeSkinContractDef;
