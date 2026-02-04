@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 import { ShapeContract } from '../contracts/shape-contract';
 import { shapeSkinContractDef } from '../contracts/shape-skin-contract';
 import { tw } from '../../../utils/tailwind/helpers';
-import { tokens } from '../../../theme/design-tokens';
+import { tokens } from '../../../theme/core/design-tokens';
 import { cn } from '../../../styling-constitution-engine/react';
 import { ShapeBase } from '../base/shape-base';
 import { variantClasses, sizeClasses } from './shape-skin-classes';

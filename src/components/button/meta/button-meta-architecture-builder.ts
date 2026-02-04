@@ -262,7 +262,7 @@ import { forwardRef, useMemo } from 'react';
 import { ButtonContract } from './button-contract';
 import { ButtonBase } from './button-base';
 import { buttonSkinContractDef } from './button-skin-contract';
-import { tokens } from '../../theme/design-tokens';
+import { tokens } from '../../theme/core/design-tokens';
 import { sanitize } from '../../utils/tailwind/helpers';
 
 // Helper to construct arbitrary values

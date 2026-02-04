@@ -1,5 +1,3 @@
-import { tokens } from '../../../theme/core/design-tokens';
-
 export const stackSkinContractDef = {
   id: 'contract_stack_skin_v1',
   name: 'stack-skin',

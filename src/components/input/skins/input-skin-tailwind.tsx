@@ -1,7 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import { InputBase, InputBaseProps } from '../base/input-base';
-import { inputSkinContractDef } from '../contracts/input-skin-contract';
-import { tw } from '../../../utils/tailwind/helpers';
+// removed unused import
 import { cn } from '../../../styling-constitution-engine/react';
 import { 
   variantClasses, 
@@ -11,9 +10,6 @@ import {
   wrapperBase,
   iconClasses
 } from './input-skin-classes';
-
-// Helper to access contract values
-const { icons } = inputSkinContractDef;
 
 export const InputTailwind = forwardRef<HTMLInputElement, InputBaseProps>(
   (

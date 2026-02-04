@@ -1,5 +1,5 @@
 import { inputSkinContractDef } from '../contracts/input-skin-contract';
-import { tokens } from '../../../theme/design-tokens';
+import { tokens } from '../../../theme/core/design-tokens';
 import { sanitize, tw } from '../../../utils/tailwind/helpers';
 
 // Helper to access contract values

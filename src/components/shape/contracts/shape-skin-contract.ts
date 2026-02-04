@@ -1,4 +1,4 @@
-import { tokens } from '../../../theme/design-tokens';
+import { tokens } from '../../../theme/core/design-tokens';
 
 // --- SKIN CONTRACT DEFINITION ---
 // Defines the visual contract for shape variants.

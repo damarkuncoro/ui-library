@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import { useConstitutionalContext } from './provider';
-import { ValidationResult } from '../core/types';
+// removed unused import
 
 /**
  * Hook to validate styling classes against the constitution
@@ -17,7 +17,6 @@ export const useConstitution = (componentName: string, classes: string | string[
     if (process.env.NODE_ENV === 'production') return { valid: true };
 
     const classList = Array.isArray(classes) ? classes : classes.split(' ');
-    const input: Record<string, any> = {};
     
     // Parse classes into a mock input format for the engine
     // Since the engine currently expects { property: value }, and we are dealing with classes

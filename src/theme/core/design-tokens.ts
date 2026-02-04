@@ -1,5 +1,5 @@
 import { defaultStylingEngine as engine } from './styling-engine';
-import { colorContractDef } from './contracts/color-contract';
+import { colorContractDef } from '../contracts/color-contract';
 
 // --- GLOBAL DESIGN TOKENS ---
 // This is the "Runtime Adapter" for the UI Library.

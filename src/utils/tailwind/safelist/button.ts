@@ -1,5 +1,5 @@
 import { buttonSkinContractDef } from '../../../components/button/contracts/button-skin-contract.js';
-import { tokens } from '../../../theme/design-tokens.js';
+import { tokens } from '../../../theme/core/design-tokens.js';
 import { sanitize, tw } from '../helpers.js';
 
 // Generator for Button Safelist

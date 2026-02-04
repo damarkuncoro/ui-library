@@ -659,5 +659,10 @@ export const defaultConstitution: Constitution = {
     '16': '4rem',
     '20': '5rem',
     '24': '6rem'
+  },
+  aspectRatio: {
+    auto: 'auto',
+    square: '1 / 1',
+    video: '16 / 9'
   }
 };

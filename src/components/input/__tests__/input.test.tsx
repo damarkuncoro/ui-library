@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { InputTailwind } from '../skins/input-skin-tailwind';
 import { variantClasses, sizeClasses } from '../skins/input-skin-classes';
 import { inputSkinContractDef } from '../contracts/input-skin-contract';
-import { tokens } from '../../../theme/design-tokens';
+import { tokens } from '../../../theme/core/design-tokens';
 
 describe('Input Component System', () => {
   const { variants, disabled } = inputSkinContractDef;

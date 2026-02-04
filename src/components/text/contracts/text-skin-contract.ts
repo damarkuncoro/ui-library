@@ -1,4 +1,4 @@
-import { tokens } from '../../../theme/design-tokens';
+import { tokens } from '../../../theme/core/design-tokens';
 
 /**
  * Text Skin Contract Definition

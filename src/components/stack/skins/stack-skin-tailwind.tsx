@@ -3,7 +3,6 @@ import { StackContract } from '../contracts/stack-contract';
 import { StackBase } from '../base/stack-base';
 import { directionClasses, alignClasses, justifyClasses, wrapClasses } from './stack-skin-classes';
 import { cn } from '../../../styling-constitution-engine/react';
-import { tw } from '../../../utils/tailwind/helpers';
 
 export const StackTailwind = forwardRef<HTMLElement, StackContract>(
   ({

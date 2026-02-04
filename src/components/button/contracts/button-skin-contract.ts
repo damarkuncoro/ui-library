@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { tokens } from '../../../theme/design-tokens.js';
+import { tokens } from '../../../theme/core/design-tokens.js';
 
 // --- SKIN CONTRACT DEFINITION ---
 // Defines the visual contract that all button skins must implement.
