@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { buttonContractDef } from './button-contract';
-import { buttonSkinContractDef } from './button-skin-contract';
-import { variantClasses, sizeClasses } from './button-skin-tailwind';
-import { ButtonTailwind } from './button-skin-tailwind';
-import { ButtonNative } from './button-skin-native';
-import { ButtonBase } from './button-base';
+import { buttonContractDef } from '../contracts/button-contract';
+import { buttonSkinContractDef } from '../contracts/button-skin-contract';
+import { variantClasses, sizeClasses } from '../skins/button-skin-tailwind';
+import { ButtonTailwind } from '../skins/button-skin-tailwind';
+import { ButtonNative } from '../skins/button-skin-native';
+import { ButtonBase } from '../base/button-base';
 
 /**
  * Consistency Tests

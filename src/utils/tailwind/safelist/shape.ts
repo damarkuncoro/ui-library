@@ -1,6 +1,6 @@
 import { shapeSkinContractDef } from '../../../components/shape/shape-skin-contract.js';
 import { tokens } from '../../../theme/design-tokens.js';
-import { sanitize, tw } from '../helpers.js';
+import { tw } from '../helpers.js';
 
 // Generator for Shape Safelist
 export function generateShapeSafelist() {

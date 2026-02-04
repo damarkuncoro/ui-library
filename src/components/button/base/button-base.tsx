@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import { ButtonContract } from './button-contract';
-import { buttonSkinContractDef } from './button-skin-contract';
+import { ButtonContract } from '../contracts/button-contract';
+import { buttonSkinContractDef } from '../contracts/button-skin-contract';
 
 /**
  * Base UI implementation for Button.
@@ -29,20 +29,6 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonContract>(
     // Determine if button should be disabled
     const isDisabled = disabled || isLoading;
 
-    // Handle keyboard events for accessibility
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-      if (isDisabled) return;
-      
-      // Allow Enter and Space to trigger the button
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        event.currentTarget.click();
-      }
-      
-      // Call any existing onKeyDown handler
-      props.onKeyDown?.(event);
-    };
-
     return (
       <button
         ref={ref}
@@ -51,7 +37,6 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonContract>(
         aria-disabled={isDisabled}
         aria-busy={isLoading}
         className={className}
-        onKeyDown={handleKeyDown}
         {...props}
       >
         {isLoading && (

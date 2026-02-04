@@ -26,6 +26,7 @@ import { objectPositionContract } from './contracts/object-position-contract';
 import { overflowContract } from './contracts/overflow-contract';
 import { overscrollBehaviorContract } from './contracts/overscroll-behavior-contract';
 import { positionContract } from './contracts/position-contract';
+import { insetContract } from './contracts/inset-contract';
 import { accessibilityContract } from './contracts/accessibility-contract';
 import { interactivityContract } from './contracts/interactivity-contract';
 import { transitionsContract } from './contracts/transitions-contract';
@@ -63,6 +64,7 @@ export const objectPosition = objectPositionContract;
 export const overflow = overflowContract;
 export const overscrollBehavior = overscrollBehaviorContract;
 export const position = positionContract;
+export const inset = insetContract;
 export const accessibility = accessibilityContract;
 export const interactivity = interactivityContract;
 export const transitions = transitionsContract;
@@ -237,6 +239,7 @@ export const tokens = {
   overflow: overflow.overflow,
   overscrollBehavior: overscrollBehavior.overscrollBehavior,
   position: position.position,
+  inset: inset.inset,
   spacing: spacing,
   screens: layout.screens,
   zIndex: layout.zIndex,

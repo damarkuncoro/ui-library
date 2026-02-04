@@ -1,0 +1,538 @@
+/**
+ * Button Meta-Architecture Builder
+ * 
+ * This utility provides a builder pattern for creating button components
+ * following the Meta-Architecture pattern. It ensures consistency across
+ * all button implementations by enforcing the contract structure.
+ * 
+ * Architecture Layers:
+ * 1. Contract (SSOT) - Types and variants definition
+ * 2. Base - DOM structure, accessibility, logic
+ * 3. Skin - Visual styling (Tailwind, Native, etc.)
+ */
+
+import { buttonContract, buttonContractDef } from '../contracts/button-contract';
+import { buttonSkinContractDef } from '../contracts/button-skin-contract';
+
+// ============================================================================
+// TYPE DEFINITIONS
+// ============================================================================
+
+/**
+ * Builder configuration for creating button components
+ */
+export interface ButtonBuilderConfig {
+  /**
+   * Component name for identification
+   */
+  componentName?: string;
+  
+  /**
+   * Whether to include accessibility features
+   */
+  includeAccessibility?: boolean;
+  
+  /**
+   * Whether to include keyboard navigation
+   */
+  includeKeyboardNavigation?: boolean;
+  
+  /**
+   * Custom class name prefix
+   */
+  classPrefix?: string;
+  
+  /**
+   * Whether to enable loading state
+   */
+  enableLoadingState?: boolean;
+  
+  /**
+   * Whether to enable icon support
+   */
+  enableIcons?: boolean;
+}
+
+/**
+ * Generated component structure
+ */
+export interface ButtonComponentStructure {
+  /**
+   * Component metadata
+   */
+  metadata: {
+    name: string;
+    version: string;
+    description: string;
+    contractId: string;
+    contractEntity: any;
+  };
+  
+  /**
+   * Contract information
+   */
+  contract: {
+    variants: string[];
+    sizes: string[];
+    props: string[];
+  };
+  
+  /**
+   * Skin contract information
+   */
+  skinContract: {
+    variantCount: number;
+    sizeCount: number;
+    hasLoader: boolean;
+    hasIcons: boolean;
+  };
+  
+  /**
+   * DOM structure template
+   */
+  domStructure: {
+    root: string;
+    children: string[];
+    attributes: string[];
+  };
+  
+  /**
+   * Accessibility features
+   */
+  accessibility: {
+    ariaAttributes: string[];
+    keyboardSupport: string[];
+    screenReaderSupport: string[];
+  };
+  
+  /**
+   * Generated TypeScript interfaces
+   */
+  types: {
+    contract: string;
+    props: string;
+  };
+}
+
+// ============================================================================
+// BUILDER CLASS
+// ============================================================================
+
+/**
+ * Button Meta-Architecture Builder
+ * 
+ * Provides a fluent API for building button components following
+ * the Meta-Architecture pattern.
+ */
+export class ButtonMetaArchitectureBuilder {
+  private config: Required<ButtonBuilderConfig>;
+  
+  constructor(config: ButtonBuilderConfig = {}) {
+    this.config = {
+      componentName: config.componentName || 'Button',
+      includeAccessibility: config.includeAccessibility ?? true,
+      includeKeyboardNavigation: config.includeKeyboardNavigation ?? true,
+      classPrefix: config.classPrefix || 'button',
+      enableLoadingState: config.enableLoadingState ?? true,
+      enableIcons: config.enableIcons ?? true,
+    };
+  }
+  
+  /**
+   * Set the component name
+   */
+  withComponentName(name: string): this {
+    this.config.componentName = name;
+    return this;
+  }
+  
+  /**
+   * Enable or disable accessibility features
+   */
+  withAccessibility(enabled: boolean): this {
+    this.config.includeAccessibility = enabled;
+    return this;
+  }
+  
+  /**
+   * Enable or disable keyboard navigation
+   */
+  withKeyboardNavigation(enabled: boolean): this {
+    this.config.includeKeyboardNavigation = enabled;
+    return this;
+  }
+  
+  /**
+   * Set the class name prefix
+   */
+  withClassPrefix(prefix: string): this {
+    this.config.classPrefix = prefix;
+    return this;
+  }
+  
+  /**
+   * Enable or disable loading state
+   */
+  withLoadingState(enabled: boolean): this {
+    this.config.enableLoadingState = enabled;
+    return this;
+  }
+  
+  /**
+   * Enable or disable icon support
+   */
+  withIcons(enabled: boolean): this {
+    this.config.enableIcons = enabled;
+    return this;
+  }
+  
+  /**
+   * Build the component structure
+   */
+  build(): ButtonComponentStructure {
+    return {
+      metadata: this.buildMetadata(),
+      contract: this.buildContractInfo(),
+      skinContract: this.buildSkinContractInfo(),
+      domStructure: this.buildDOMStructure(),
+      accessibility: this.buildAccessibilityFeatures(),
+      types: this.buildTypes(),
+    };
+  }
+  
+  /**
+   * Generate component code template
+   */
+  generateCodeTemplate(): string {
+    const structure = this.build();
+    
+    return `
+// ============================================================================
+// ${this.config.componentName} Component
+// Generated by ButtonMetaArchitectureBuilder
+// ============================================================================
+
+import { forwardRef, ReactNode } from 'react';
+import { ButtonContract } from './button-contract';
+import { ButtonBase } from './button-base';
+
+/**
+ * ${this.config.componentName} Component
+ * 
+ * ${structure.metadata.description}
+ * 
+ * @component
+ * @example
+ * \`\`\`tsx
+ * <${this.config.componentName} variant="primary" size="md">
+ *   Click me
+ * </${this.config.componentName}>
+ * \`\`\`
+ */
+export const ${this.config.componentName} = forwardRef<HTMLButtonElement, ButtonContract>(
+  (props, ref) => {
+    return <ButtonBase ref={ref} {...props} />;
+  }
+);
+
+${this.config.componentName}.displayName = '${this.config.componentName}';
+
+// ============================================================================
+// EXPORTS
+// ============================================================================
+
+export type { ButtonContract } from './button-contract';
+export { ButtonBase } from './button-base';
+`.trim();
+  }
+  
+  /**
+   * Generate skin code template
+   */
+  generateSkinTemplate(skinName: string): string {
+    this.build();
+    
+    return `
+// ============================================================================
+// ${this.config.componentName}${skinName} Skin
+// Generated by ButtonMetaArchitectureBuilder
+// ============================================================================
+
+import { forwardRef, useMemo } from 'react';
+import { ButtonContract } from './button-contract';
+import { ButtonBase } from './button-base';
+import { buttonSkinContractDef } from './button-skin-contract';
+import { tokens } from '../../theme/design-tokens';
+import { sanitize } from '../../utils/tailwind/helpers';
+
+// Helper to construct arbitrary values
+const tw = (prefix: string, val: string | number) => \`\${prefix}-[\${sanitize(val)}]\`;
+
+/**
+ * ${this.config.componentName}${skinName} Skin
+ * 
+ * Visual styling implementation for ${this.config.componentName}
+ * using ${skinName} approach.
+ * 
+ * Adheres to Meta Architecture: Skins -> Base UI + ${skinName} + Contract.
+ */
+export const ${this.config.componentName}${skinName} = forwardRef<HTMLButtonElement, ButtonContract>(
+  (
+    {
+      variant = 'primary',
+      size = 'md',
+      className = '',
+      ...props
+    },
+    ref
+  ) => {
+    // Combine classes with memoization
+    const combinedClassName = useMemo(() => {
+      // TODO: Implement your ${skinName} styling here
+      // Use buttonSkinContractDef for design tokens
+      // Example:
+      // const classes = [
+      //   tw('bg', buttonSkinContractDef.variants[variant].backgroundColor),
+      //   tw('text', buttonSkinContractDef.variants[variant].color),
+      //   // ... more classes
+      // ];
+      // return classes.filter(Boolean).join(' ');
+      
+      return className;
+    }, [variant, size, className]);
+
+    return (
+      <ButtonBase
+        ref={ref}
+        className={combinedClassName}
+        variant={variant}
+        size={size}
+        {...props}
+      />
+    );
+  }
+);
+
+${this.config.componentName}${skinName}.displayName = '${this.config.componentName}${skinName}';
+`.trim();
+  }
+  
+  /**
+   * Generate test template
+   */
+  generateTestTemplate(): string {
+    const structure = this.build();
+    
+    return `
+// ============================================================================
+// ${this.config.componentName} Component Tests
+// Generated by ButtonMetaArchitectureBuilder
+// ============================================================================
+
+import { render, screen } from '@testing-library/react';
+import { ${this.config.componentName} } from './${this.config.componentName.toLowerCase()}';
+
+describe('${this.config.componentName}', () => {
+  describe('Rendering', () => {
+    it('should render with default props', () => {
+      render(<${this.config.componentName}>Click me</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('should render children', () => {
+      render(<${this.config.componentName}>Test Button</${this.config.componentName}>);
+      expect(screen.getByText('Test Button')).toBeInTheDocument();
+    });
+  });
+
+  describe('Variants', () => {
+${structure.contract.variants.map(variant => `
+    it('should render ${variant} variant', () => {
+      render(<${this.config.componentName} variant="${variant}">${variant}</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+`).join('')}
+  });
+
+  describe('Sizes', () => {
+${structure.contract.sizes.map(size => `
+    it('should render ${size} size', () => {
+      render(<${this.config.componentName} size="${size}">${size}</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+`).join('')}
+  });
+
+  describe('States', () => {
+    it('should render disabled state', () => {
+      render(<${this.config.componentName} disabled>Disabled</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toBeDisabled();
+    });
+
+    it('should render loading state', () => {
+      render(<${this.config.componentName} isLoading>Loading</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have proper ARIA attributes', () => {
+      render(<${this.config.componentName} aria-label="Submit form">Submit</${this.config.componentName}>);
+      expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Submit form');
+    });
+
+    it('should support keyboard navigation', () => {
+      render(<${this.config.componentName}>Click me</${this.config.componentName}>);
+      const button = screen.getByRole('button');
+      // TODO: Add keyboard navigation tests
+    });
+  });
+});
+`.trim();
+  }
+  
+  // ============================================================================
+  // PRIVATE BUILDERS
+  // ============================================================================
+  
+  private buildMetadata() {
+    return {
+      name: this.config.componentName,
+      version: '1.0.0',
+      description: `A button component following the Meta-Architecture pattern`,
+      contractId: buttonContractDef.id,
+      contractEntity: buttonContract,
+    };
+  }
+  
+  private buildContractInfo() {
+    const variantDef = buttonContractDef.variants.find(v => v.name === 'variant');
+    const sizeDef = buttonContractDef.variants.find(v => v.name === 'size');
+    
+    return {
+      variants: variantDef ? [...variantDef.values] : [],
+      sizes: sizeDef ? [...sizeDef.values] : [],
+      props: buttonContractDef.props.map(p => p.name),
+    };
+  }
+  
+  private buildSkinContractInfo() {
+    return {
+      variantCount: Object.keys(buttonSkinContractDef.variants).length,
+      sizeCount: Object.keys(buttonSkinContractDef.sizes).length,
+      hasLoader: !!buttonSkinContractDef.loader,
+      hasIcons: !!buttonSkinContractDef.icons,
+    };
+  }
+  
+  private buildDOMStructure() {
+    const prefix = this.config.classPrefix;
+    
+    return {
+      root: 'button',
+      children: [
+        `${prefix}-loader-wrapper`,
+        `${prefix}-loader`,
+        `${prefix}-icon-left`,
+        `${prefix}-content`,
+        `${prefix}-icon-right`,
+      ],
+      attributes: [
+        'type',
+        'disabled',
+        'aria-disabled',
+        'aria-busy',
+        'className',
+        'onKeyDown',
+      ],
+    };
+  }
+  
+  private buildAccessibilityFeatures() {
+    const features = {
+      ariaAttributes: [
+        'aria-disabled',
+        'aria-busy',
+        'aria-hidden',
+      ],
+      keyboardSupport: [
+        'Enter key',
+        'Space key',
+      ],
+      screenReaderSupport: [
+        'aria-label',
+        'aria-describedby',
+      ],
+    };
+    
+    if (!this.config.includeAccessibility) {
+      return {
+        ariaAttributes: [],
+        keyboardSupport: [],
+        screenReaderSupport: [],
+      };
+    }
+    
+    if (!this.config.includeKeyboardNavigation) {
+      features.keyboardSupport = [];
+    }
+    
+    return features;
+  }
+  
+  private buildTypes() {
+    return {
+      contract: `
+export interface ButtonContract extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  isLoading?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+}`,
+      props: `
+export type ButtonVariant = ${this.buildContractInfo().variants.map(v => `'${v}'`).join(' | ')};
+export type ButtonSize = ${this.buildContractInfo().sizes.map(s => `'${s}'`).join(' | ')};`,
+    };
+  }
+}
+
+// ============================================================================
+// FACTORY FUNCTIONS
+// ============================================================================
+
+/**
+ * Create a button component builder with default configuration
+ */
+export function createButtonBuilder(config?: ButtonBuilderConfig): ButtonMetaArchitectureBuilder {
+  return new ButtonMetaArchitectureBuilder(config);
+}
+
+/**
+ * Quick factory to build a button component structure
+ */
+export function buildButtonStructure(config?: ButtonBuilderConfig): ButtonComponentStructure {
+  return createButtonBuilder(config).build();
+}
+
+/**
+ * Quick factory to generate component code
+ */
+export function generateButtonCode(config?: ButtonBuilderConfig): string {
+  return createButtonBuilder(config).generateCodeTemplate();
+}
+
+/**
+ * Quick factory to generate skin code
+ */
+export function generateButtonSkin(skinName: string, config?: ButtonBuilderConfig): string {
+  return createButtonBuilder(config).generateSkinTemplate(skinName);
+}
+
+/**
+ * Quick factory to generate test code
+ */
+export function generateButtonTests(config?: ButtonBuilderConfig): string {
+  return createButtonBuilder(config).generateTestTemplate();
+}

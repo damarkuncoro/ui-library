@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { ShapeContract } from './shape-contract';
 import { shapeSkinContractDef } from './shape-skin-contract';
-import { sanitize, tw } from '../../utils/tailwind/helpers';
+import { tw } from '../../utils/tailwind/helpers';
 import { tokens } from '../../theme/design-tokens';
 
 const { variants, sizes } = shapeSkinContractDef;

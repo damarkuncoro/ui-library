@@ -1,10 +1,11 @@
+import { ContractEntity } from '@damarkuncoro/meta-architecture';
 import { ReactNode, ButtonHTMLAttributes } from 'react';
 
 // --- CONTRACT DEFINITION (SSOT) ---
 // Defined as a TypeScript Object with `as const` for strict type inference.
-// This replaces the external JSON file to reduce complexity and build steps.
+// Used for both runtime validation (via Meta Architecture) and compile-time types.
 
-export const buttonContractDef = {
+const schema = {
   id: "contract_button_v1",
   name: "button",
   category: "ui.component",
@@ -32,6 +33,12 @@ export const buttonContractDef = {
     { name: "rightIcon", type: "object", required: false }
   ]
 } as const;
+
+// Export Runtime Entity
+export const buttonContract = ContractEntity.create(schema as unknown as Parameters<typeof ContractEntity.create>[0]);
+
+// Export Schema for Types (Backward Compatibility)
+export const buttonContractDef = schema;
 
 // --- AUTOMATIC TYPE INFERENCE UTILITIES ---
 // DRY: Deriving types directly from the Contract Object.

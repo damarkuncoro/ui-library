@@ -1,9 +1,9 @@
 import { forwardRef, useMemo } from 'react';
-import { ButtonContract } from './button-contract';
-import { ButtonBase } from './button-base';
-import { buttonSkinContractDef } from './button-skin-contract';
-import { tokens } from '../../theme/design-tokens';
-import { sanitize, tw } from '../../utils/tailwind/helpers';
+import { ButtonContract } from '../contracts/button-contract';
+import { ButtonBase } from '../base/button-base';
+import { buttonSkinContractDef } from '../contracts/button-skin-contract';
+import { tokens } from '../../../theme/design-tokens';
+import { sanitize, tw } from '../../../utils/tailwind/helpers';
 
 // Helper to access contract values
 const { variants, sizes, base, disabled, icons, loader } = buttonSkinContractDef;
@@ -22,7 +22,7 @@ const createVariantClasses = (variant: ButtonVariant) => {
   ];
 
   if ('borderColor' in variant) {
-    classes.unshift('border', tw('border', (variant as any).borderColor));
+    classes.unshift('border', tw('border', variant.borderColor));
   }
 
   return classes.join(' ');

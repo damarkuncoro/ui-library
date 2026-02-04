@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { ButtonTailwind } from './button-skin-tailwind';
-import { ButtonNative } from './button-skin-native';
+import { ButtonTailwind } from '../skins/button-skin-tailwind';
+import { ButtonNative } from '../skins/button-skin-native';
 
 // ============================================================================
 // VARIANT EXAMPLES
